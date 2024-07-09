@@ -50,7 +50,7 @@ def login():
 
         if user and user.password == password:
             session['user_id'] = user.id
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('index'))
         else:
             return 'Invalid username or password. Please try again.'
 
