@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="trying to fix error 500 again by adding to requirements.txt" />
+    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="trying to fix error 500 again">
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1720511270057</updated>
       <workItem from="1720511293352" duration="1198000" />
-      <workItem from="1720512500503" duration="3924000" />
+      <workItem from="1720512500503" duration="4226000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -150,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720516442913</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="trying to fix error 500 again">
+      <option name="closed" value="true" />
+      <created>1720516552881</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720516552881</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +174,8 @@
     <MESSAGE value="updated app.py to add PostgreSQL as a database and added registering/login functions" />
     <MESSAGE value="trying to fix error 500" />
     <MESSAGE value="trying to fix error 500 again by adding to requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to fix error 500 again by adding to requirements.txt" />
+    <MESSAGE value="trying to fix error 500 again" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to fix error 500 again" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720516124701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
