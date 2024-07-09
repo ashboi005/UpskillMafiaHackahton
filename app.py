@@ -1,16 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-
-# Configure SQLAlchemy
+app.secret_key = os.urandom(24)
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql+psycopg2://default:SA57KMxEhzwb@ep-holy-firefly-a1hm97ya.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Initialize SQLAlchemy
 db = SQLAlchemy(app)
 
-# Define User model
 class User(db.Model):
     __tablename__ = 'login'
 
@@ -50,7 +48,7 @@ def login():
 
         if user and user.password == password:
             session['user_id'] = user.id
-            return redirect(url_for('index'))
+            return redirect(url_for('index'))  # Redirect to index page upon successful login
         else:
             return 'Invalid username or password. Please try again.'
 
