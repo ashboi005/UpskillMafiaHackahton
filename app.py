@@ -16,6 +16,13 @@ class User(db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
+class RagPicker(db.Model):
+    __tablename__ = 'ragpickers'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+
 # Routes
 @app.route('/')
 def index():
@@ -53,6 +60,39 @@ def login():
             return 'Invalid username or password. Please try again.'
 
     return render_template('login.html')
+
+@app.route('/ragpicker_register', methods=['GET', 'POST'])
+def ragpicker_register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if RagPicker.query.filter_by(username=username).first():
+            return 'Username is already taken!'
+
+        new_ragpicker = RagPicker(username=username, password=password)
+        db.session.add(new_ragpicker)
+        db.session.commit()
+
+        return redirect(url_for('ragpicker_login'))
+
+    return render_template('ragpicker_register.html')
+
+@app.route('/ragpicker_login', methods=['GET', 'POST'])
+def ragpicker_login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        ragpicker = RagPicker.query.filter_by(username=username).first()
+
+        if ragpicker and ragpicker.password == password:
+            session['ragpicker_id'] = ragpicker.id
+            return redirect(url_for('index'))
+        else:
+            return 'Invalid username or password. Please try again.'
+
+    return render_template('ragpicker_login.html')
 
 if __name__ == '__main__':
     app.run()
