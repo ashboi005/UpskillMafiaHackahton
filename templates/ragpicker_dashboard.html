@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ragpicker Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ ragpicker_details.name }}</h1>
+    <p>Ragpicker Options:</p>
+    <ul>
+        <li><a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a></li>
+        <li>Job Accept/Reject (placeholder)</li>
+        <li>Payment Info (placeholder)</li>
+    </ul>
+</body>
+</html>

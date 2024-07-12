@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ragpicker Details</title>
+</head>
+<body>
+    <h1>Fill Ragpicker Details</h1>
+    <form action="{{ url_for('ragpicker_fill_details') }}" method="POST">
+        <input type="text" name="name" placeholder="Name" value="{{ ragpicker_details.name if ragpicker_details else '' }}" required><br>
+        <input type="text" name="contact_number" placeholder="Contact Number" value="{{ ragpicker_details.contact_number if ragpicker_details else '' }}" required><br>
+        <input type="text" name="locality" placeholder="Locality" value="{{ ragpicker_details.locality if ragpicker_details else '' }}" required><br>
+        <input type="text" name="city" placeholder="City" value="{{ ragpicker_details.city if ragpicker_details else '' }}" required><br>
+        <input type="text" name="state" placeholder="State" value="{{ ragpicker_details.state if ragpicker_details else '' }}" required><br>
+        <input type="text" name="pincode" placeholder="Pincode" value="{{ ragpicker_details.pincode if ragpicker_details else '' }}" required><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

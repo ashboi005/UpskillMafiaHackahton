@@ -16,12 +16,27 @@ class User(db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
-class RagPicker(db.Model):
-    __tablename__ = 'ragpickers'
+class Ragpicker(db.Model):
+    __tablename__ = 'ragpicker_login'
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+
+# Define RagpickerDetails model
+class RagpickerDetails(db.Model):
+    __tablename__ = 'ragpicker_details'
+
+    id = db.Column(db.Integer, primary_key=True)
+    ragpicker_id = db.Column(db.Integer, db.ForeignKey('ragpicker_login.id'), nullable=False)
+    name = db.Column(db.String(100))
+    contact_number = db.Column(db.String(20))
+    locality = db.Column(db.String(100))
+    city = db.Column(db.String(50))
+    state = db.Column(db.String(50))
+    pincode = db.Column(db.String(10))
+
+    ragpicker = db.relationship('Ragpicker', backref=db.backref('details', uselist=False))
 
 # Routes
 @app.route('/')
@@ -67,10 +82,10 @@ def ragpicker_register():
         username = request.form['username']
         password = request.form['password']
 
-        if RagPicker.query.filter_by(username=username).first():
+        if Ragpicker.query.filter_by(username=username).first():
             return 'Username is already taken!'
 
-        new_ragpicker = RagPicker(username=username, password=password)
+        new_ragpicker = Ragpicker(username=username, password=password)
         db.session.add(new_ragpicker)
         db.session.commit()
 
@@ -84,15 +99,49 @@ def ragpicker_login():
         username = request.form['username']
         password = request.form['password']
 
-        ragpicker = RagPicker.query.filter_by(username=username).first()
+        ragpicker = Ragpicker.query.filter_by(username=username).first()
 
         if ragpicker and ragpicker.password == password:
             session['ragpicker_id'] = ragpicker.id
-            return redirect(url_for('index'))
+            session['user_type'] = 'ragpicker'
+            return redirect(url_for('ragpicker_fill_details'))
         else:
             return 'Invalid username or password. Please try again.'
 
     return render_template('ragpicker_login.html')
+
+@app.route('/ragpicker_fill_details', methods=['GET', 'POST'])
+def ragpicker_fill_details():
+    if 'ragpicker_id' not in session:
+        return redirect(url_for('ragpicker_login'))
+
+    ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=session['ragpicker_id']).first()
+
+    if request.method == 'POST':
+        if not ragpicker_details:
+            ragpicker_details = RagpickerDetails(ragpicker_id=session['ragpicker_id'])
+            db.session.add(ragpicker_details)
+
+        ragpicker_details.name = request.form['name']
+        ragpicker_details.contact_number = request.form['contact_number']
+        ragpicker_details.locality = request.form['locality']
+        ragpicker_details.city = request.form['city']
+        ragpicker_details.state = request.form['state']
+        ragpicker_details.pincode = request.form['pincode']
+
+        db.session.commit()
+
+        return redirect(url_for('ragpicker_dashboard'))
+
+    return render_template('ragpicker_fill_details.html', ragpicker_details=ragpicker_details)
+
+@app.route('/ragpicker_dashboard')
+def ragpicker_dashboard():
+    if 'ragpicker_id' not in session:
+        return redirect(url_for('ragpicker_login'))
+
+    ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=session['ragpicker_id']).first()
+    return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details)
 
 if __name__ == '__main__':
     app.run()
