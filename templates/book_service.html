@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service</title>
+    <style>
+        .ragpicker-bubble {
+            display: inline-block;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Waste Whirl Partner</h1>
+    {% for ragpicker in ragpickers %}
+    <div class="ragpicker-bubble" onclick="window.location.href='{{ url_for('request_service', ragpicker_id=ragpicker.id) }}'">
+        <p>Name: {{ ragpicker.name }}</p>
+        <p>Locality: {{ ragpicker.locality }}</p>
+        <p>City: {{ ragpicker.city }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>

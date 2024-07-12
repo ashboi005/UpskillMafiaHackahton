@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+
+}
+.background img{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    
+}
+body{
+   
+    display: flex;
+    justify-content: center;
+
+}
+.back{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 20px;
+    width: 20px;
+}
+.back button{
+    width: 20px;
+    height: 20px;
+    background: none;
+}
+.back button img{
+    width: 20px;
+    height: 20px;
+}
+.container{
+    background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border: none;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container h1{
+    text-align: center;
+    color: white;
+}
+#btn{
+   padding: 15px 100px;
+   margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    background-color: greenyellow;
+    font-size: 20px;
+    cursor: pointer;
+}
+#btn:hover{
+    animation: button 0.5s ease-out forwards;
+}
+form{
+    text-align: center;
+}
+form input{
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    
+  }
+  form label{
+      font-size: 20px;
+      color: white;
+  }
+  .container a{
+    text-decoration: none;
+  }
+  .container a:hover{
+    animation: a 0.5s ease-out forwards;
+  }
+  @keyframes button {
+    to{
+        transform: scale(1.1);
+    }
+    
+}
+@keyframes a {
+    to{
+        text-decoration: underline;
+    }
+}

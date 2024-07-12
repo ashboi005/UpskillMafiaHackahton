@@ -10,7 +10,17 @@
     <p>User Options:</p>
     <ul>
         <li><a href="{{ url_for('user_fill_details') }}">Edit Details</a></li>
-        <li>Book Service/Appointment (placeholder)</li>
+        <li><a href="{{ url_for('book_service') }}">Book Service/Appointment</a></li>
     </ul>
+
+    <h2>Service Requests</h2>
+    {% for request in service_requests %}
+    <div>
+        <p>Ragpicker: {{ request.ragpicker.username }}</p>
+        <p>Description: {{ request.description }}</p>
+        <p>Date and Time: {{ request.date_time }}</p>
+        <p>Status: {{ request.status }}</p>
+    </div>
+    {% endfor %}
 </body>
 </html>

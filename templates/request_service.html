@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Service</title>
+</head>
+<body>
+    <h1>Request Service from {{ ragpicker.name }}</h1>
+    <p>Locality: {{ ragpicker.locality }}</p>
+    <p>City: {{ ragpicker.city }}</p>
+    <p>State: {{ ragpicker.state }}</p>
+    <p>Pincode: {{ ragpicker.pincode }}</p>
+    <p>Contact Number: {{ ragpicker.contact_number }}</p>
+
+    <form action="{{ url_for('request_service', ragpicker_id=ragpicker.id) }}" method="POST">
+        <textarea name="description" placeholder="Work Description/Request" required></textarea><br>
+        <input type="datetime-local" name="date_time" required><br>
+        <button type="submit">Request Service</button>
+    </form>
+</body>
+</html>

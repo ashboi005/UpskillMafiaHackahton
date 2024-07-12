@@ -11,7 +11,20 @@
     <ul>
         <li><a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a></li>
         <li>Job Accept/Reject (placeholder)</li>
-        <li>Payment Info (placeholder)</li>
     </ul>
+
+    <h2>Service Requests</h2>
+    {% for request in service_requests %}
+    <div>
+        <p>User: {{ request.user.username }}</p>
+        <p>Description: {{ request.description }}</p>
+        <p>Date and Time: {{ request.date_time }}</p>
+        <p>Status: {{ request.status }}</p>
+        <form action="{{ url_for('update_service_request', request_id=request.id) }}" method="POST">
+            <button type="submit" name="action" value="accept">Accept</button>
+            <button type="submit" name="action" value="reject">Reject</button>
+        </form>
+    </div>
+    {% endfor %}
 </body>
 </html>

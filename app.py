@@ -53,10 +53,32 @@ class RagpickerDetails(db.Model):
 
     ragpicker = db.relationship('Ragpicker', backref=db.backref('details', uselist=False))
 
+class ServiceRequest(db.Model):
+    __tablename__ = 'service_requests'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('login.id'), nullable=False)
+    ragpicker_id = db.Column(db.Integer, db.ForeignKey('ragpicker_login.id'), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
+    date_time = db.Column(db.DateTime, nullable=False)
+    status = db.Column(db.String(50), nullable=False)
+
+    user = db.relationship('User', backref=db.backref('service_requests', lazy=True))
+    ragpicker = db.relationship('Ragpicker', backref=db.backref('service_requests', lazy=True))
+
+
 # Routes
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/choose_register')
+def choose_register():
+    return render_template('double_register.html')
+
+@app.route('/choose_login')
+def choose_login():
+    return render_template('double_login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -85,11 +107,16 @@ def login():
 
         if user and user.password == password:
             session['user_id'] = user.id
-            return redirect(url_for('user_fill_details'))
+            user_details = UserDetails.query.filter_by(user_id=user.id).first()
+            if user_details:
+                return redirect(url_for('user_dashboard'))
+            else:
+                return redirect(url_for('user_fill_details'))
         else:
             return 'Invalid username or password. Please try again.'
 
     return render_template('login.html')
+
 
 @app.route('/ragpicker_register', methods=['GET', 'POST'])
 def ragpicker_register():
@@ -119,11 +146,16 @@ def ragpicker_login():
         if ragpicker and ragpicker.password == password:
             session['ragpicker_id'] = ragpicker.id
             session['user_type'] = 'ragpicker'
-            return redirect(url_for('ragpicker_fill_details'))
+            ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=ragpicker.id).first()
+            if ragpicker_details:
+                return redirect(url_for('ragpicker_dashboard'))
+            else:
+                return redirect(url_for('ragpicker_fill_details'))
         else:
             return 'Invalid username or password. Please try again.'
 
     return render_template('ragpicker_login.html')
+
 
 @app.route('/ragpicker_fill_details', methods=['GET', 'POST'])
 def ragpicker_fill_details():
@@ -156,7 +188,9 @@ def ragpicker_dashboard():
         return redirect(url_for('ragpicker_login'))
 
     ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=session['ragpicker_id']).first()
-    return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details)
+    service_requests = ServiceRequest.query.filter_by(ragpicker_id=session['ragpicker_id']).all()
+    return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details, service_requests=service_requests)
+
 
 @app.route('/user_fill_details', methods=['GET', 'POST'])
 def user_fill_details():
@@ -191,7 +225,51 @@ def user_dashboard():
         return redirect(url_for('login'))
 
     user_details = UserDetails.query.filter_by(user_id=session['user_id']).first()
-    return render_template('user_dashboard.html', user_details=user_details)
+    service_requests = ServiceRequest.query.filter_by(user_id=session['user_id']).all()
+    return render_template('user_dashboard.html', user_details=user_details, service_requests=service_requests)
+
+
+@app.route('/book_service')
+def book_service():
+    ragpickers = RagpickerDetails.query.all()
+    return render_template('book_service.html', ragpickers=ragpickers)
+
+@app.route('/request_service/<int:ragpicker_id>', methods=['GET', 'POST'])
+def request_service(ragpicker_id):
+    ragpicker = RagpickerDetails.query.get_or_404(ragpicker_id)
+
+    if request.method == 'POST':
+        description = request.form['description']
+        date_time = request.form['date_time']
+
+        service_request = ServiceRequest(
+            user_id=session['user_id'],
+            ragpicker_id=ragpicker_id,
+            description=description,
+            date_time=date_time,
+            status='pending'
+        )
+        db.session.add(service_request)
+        db.session.commit()
+
+        return redirect(url_for('user_dashboard'))
+
+    return render_template('request_service.html', ragpicker=ragpicker)
+
+
+@app.route('/update_service_request/<int:request_id>', methods=['POST'])
+def update_service_request(request_id):
+    service_request = ServiceRequest.query.get_or_404(request_id)
+    action = request.form['action']
+
+    if action == 'accept':
+        service_request.status = 'accepted'
+    elif action == 'reject':
+        service_request.status = 'rejected'
+
+    db.session.commit()
+    return redirect(url_for('ragpicker_dashboard'))
+
 
 if __name__ == '__main__':
     app.run()
