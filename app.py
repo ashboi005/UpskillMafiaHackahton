@@ -23,7 +23,22 @@ class Ragpicker(db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
-# Define RagpickerDetails model
+class UserDetails(db.Model):
+    __tablename__ = 'user_details'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('login.id'), nullable=False)
+    name = db.Column(db.String(100))
+    phone_number = db.Column(db.String(20))
+    email = db.Column(db.String(100))
+    gender = db.Column(db.String(10))
+    address = db.Column(db.String(200))
+    city = db.Column(db.String(50))
+    state = db.Column(db.String(50))
+    pincode = db.Column(db.String(10))
+
+    user = db.relationship('User', backref=db.backref('details', uselist=False))
+
 class RagpickerDetails(db.Model):
     __tablename__ = 'ragpicker_details'
 
@@ -70,7 +85,7 @@ def login():
 
         if user and user.password == password:
             session['user_id'] = user.id
-            return redirect(url_for('index'))  # Redirect to index page upon successful login
+            return redirect(url_for('index'))
         else:
             return 'Invalid username or password. Please try again.'
 
@@ -142,6 +157,41 @@ def ragpicker_dashboard():
 
     ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=session['ragpicker_id']).first()
     return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details)
+
+@app.route('/user_fill_details', methods=['GET', 'POST'])
+def user_fill_details():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    user_details = UserDetails.query.filter_by(user_id=session['user_id']).first()
+
+    if request.method == 'POST':
+        if not user_details:
+            user_details = UserDetails(user_id=session['user_id'])
+            db.session.add(user_details)
+
+        user_details.name = request.form['name']
+        user_details.phone_number = request.form['phone_number']
+        user_details.email = request.form['email']
+        user_details.gender = request.form['gender']
+        user_details.address = request.form['address']
+        user_details.city = request.form['city']
+        user_details.state = request.form['state']
+        user_details.pincode = request.form['pincode']
+
+        db.session.commit()
+
+        return redirect(url_for('user_dashboard'))
+
+    return render_template('user_fill_details.html', user_details=user_details)
+
+@app.route('/user_dashboard')
+def user_dashboard():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    user_details = UserDetails.query.filter_by(user_id=session['user_id']).first()
+    return render_template('user_dashboard.html', user_details=user_details)
 
 if __name__ == '__main__':
     app.run()
