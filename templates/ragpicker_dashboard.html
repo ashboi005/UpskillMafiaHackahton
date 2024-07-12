@@ -7,11 +7,8 @@
 </head>
 <body>
     <h1>Welcome, {{ ragpicker_details.name }}</h1>
-    <p>Ragpicker Options:</p>
-    <ul>
-        <li><a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a></li>
-        <li>Job Accept/Reject (placeholder)</li>
-    </ul>
+
+    <a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a>
 
     <h2>Service Requests</h2>
     {% for request in service_requests %}
