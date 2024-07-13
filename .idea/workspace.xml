@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="updated frontend for user forms">
-      <change afterPath="$PROJECT_DIR$/templates/ragpicker_reviews.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/submit_review.html" afterDir="false" />
+    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="fixed a bug with payments">
+      <change afterPath="$PROJECT_DIR$/static/images/favicon-32x32.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book_service.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book_service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +68,9 @@
       <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\images" />
+      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static" />
+      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon" />
       <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\templates" />
     </key>
   </component>
@@ -138,7 +137,7 @@
       <workItem from="1720787463481" duration="2256000" />
       <workItem from="1720795237735" duration="1267000" />
       <workItem from="1720797438425" duration="14835000" />
-      <workItem from="1720857113926" duration="14583000" />
+      <workItem from="1720857113926" duration="16177000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -348,7 +347,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720871853227</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added functionality for reviews and ratings">
+      <option name="closed" value="true" />
+      <created>1720875089380</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1720875089380</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fixed a bug with payments">
+      <option name="closed" value="true" />
+      <created>1720875491519</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1720875491519</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +381,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first" />
     <MESSAGE value="added vercel.json and requirements.txt" />
     <MESSAGE value="updated requirements.txt" />
     <MESSAGE value="updated app.py to make a mock run" />
@@ -390,10 +404,12 @@
     <MESSAGE value="updated requirements.txt to have razorpay" />
     <MESSAGE value="again updated requirements.txt" />
     <MESSAGE value="updated frontend for user forms" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated frontend for user forms" />
+    <MESSAGE value="added functionality for reviews and ratings" />
+    <MESSAGE value="fixed a bug with payments" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a bug with payments" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1720633839639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720874538450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720876658144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
