@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>Service Requests</h2>
+    {% for request, user_details in service_requests_with_user_details %}
+    <div>
+        <p>User: {{ request.user.username }}</p>
+        <p>Description: {{ request.description }}</p>
+        <p>Date and Time: {{ request.date_time }}</p>
+        <p>Address: {{ user_details.address }}, {{ user_details.city }}, {{ user_details.state }}</p>
+        <p>Status: {{ request.status }}</p>
+        {% if request.status == 'pending' %}
+        <form action="{{ url_for('update_service_request', request_id=request.id) }}" method="post">
+            <button type="submit" name="action" value="accept">Accept</button>
+            <button type="submit" name="action" value="reject">Reject</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>

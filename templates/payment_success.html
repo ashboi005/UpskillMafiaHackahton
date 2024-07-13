@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="stylesheet" href="static/css/payment_success.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
 </head>
 <body>
-    <p> Payment Successful! </p>
-    <a href="{{ url_for ('user_dashboard') }}"> Go back to Dashboard </a>
+    <div class="container">
+        <div class="box">
+    <h1> Payment Successful! </h1>
+    <p>Your Payment is Successful. The ragpicker will reach your location at the appointed date and time </p>
+    <button><a href="{{ url_for ('user_dashboard') }}"> Go back to Dashboard </a></button>
+</div>
+</div>
 </body>
 </html>

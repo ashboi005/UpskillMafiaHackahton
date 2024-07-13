@@ -205,15 +205,16 @@ def ragpicker_dashboard():
     ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=session['ragpicker_id']).first()
     service_requests = ServiceRequest.query.filter_by(ragpicker_id=session['ragpicker_id']).all()
 
-    # Fetch user details for each service request
+    return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details)
+
+@app.route('/service_requests')
+def service_requests():
     service_requests_with_user_details = []
     for request in service_requests:
         user_details = UserDetails.query.filter_by(user_id=request.user_id).first()
         service_requests_with_user_details.append((request, user_details))
 
-    return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details,
-                           service_requests_with_user_details=service_requests_with_user_details)
-
+    return render_template('service_requests.html', service_requests_with_user_details=service_requests_with_user_details)
 
 @app.route('/user_fill_details', methods=['GET', 'POST'])
 def user_fill_details():

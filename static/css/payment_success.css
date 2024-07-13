@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins","sans-sheriff";
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    
+    
+}
+.box{
+    text-align: center;
+    border: 2px solid;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 400px;
+    height: 300px;
+}
+body h1{
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 50px;
+}
+body p{
+    margin-top: 10px;
+    color: grey;
+}
+body button{
+    cursor: pointer;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: green;
+   
+}
+body button:hover{
+    animation: button 0.5s ease-out forwards;
+}
+body a{
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+   
+}
+@keyframes button {
+    to{
+        transform: scale(1.1);
+    }
+    
+}

@@ -1,13 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Waste Whirl</title>
+    <link rel="stylesheet" href="./static/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/fav.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
 <body>
-    <h1>Welcome to the Home Page</h1>
-    <a href="{{ url_for('choose_register') }}">Login</a>
+    <nav>
+        <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="#">Scrap Rates</a></li>
+            <li><a href="#Whyus">Why us?</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+        </ul>
+        <a href="{{ url_for('choose_register')}}" id="login-btn">Sign-up/Login</a>
+    </nav>
+
+    <section id="hero">
+        <div class="Right">
+            <h1 class="main-h1">
+                Sell your recyclables
+                <br>
+                online with <span class="waste-whirl-span">Waste Whirl!</span>
+            </h1>
+            <span class="right-span">
+                Paper - Plastics - Metals - Appliances
+            </span>
+            <br>
+
+            <a href="{{ url_for('choose_register') }}" id="book-now">Book now</a>
+        </div>
+
+        <div class="Left">
+            <img src="/static/images/download.png" alt="pickup" class="pickup">
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <h2>How it works</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <img src="/static/images/planner.png" alt="Schedule a pickup">
+                <h3>Schedule a pickup</h3>
+            </div>
+            <div class="step-card">
+                <img src="/static/images/del.png" alt="Pickup at your address">
+                <h3>Pickup at your address</h3>
+            </div>
+            <div class="step-card">
+                <img src="/static/images/credit.png" alt="Receive payment">
+                <h3>Receive payment</h3>
+            </div>
+        </div>
+    </section>
+    <section id="Whyus">
+        <h2>Why us?</h2>
+        <div class="why-container">
+            <div class="card">
+                <div class="icon">💰</div>
+                <div class="title">Best Rates</div>
+                <div class="description">We provide the best value for your scrap from our network of Recyclers.</div>
+            </div>
+            <div class="card">
+                <div class="icon">👍</div>
+                <div class="title">Convenience</div>
+                <div class="description">Doorstep pickup according to user's convenient date & time.</div>
+            </div>
+            <div class="card">
+                <div class="icon">🔒</div>
+                <div class="title">Trust</div>
+                <div class="description">Trained & Verified Pickup Staff with Swapeco Smart Weighing Scale.</div>
+            </div>
+            <div class="card">
+                <div class="icon">🌳</div>
+                <div class="title">Eco-friendly</div>
+                <div class="description">We ensure responsible recycling of your scrap items.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="header">
+                    <img class="avatar" src="/static/images/1.png" alt="John Doe">
+                    <div class="name">Rajesh Kumar</div>
+                </div>
+                <div class="content">
+                    The service provided was exceptional. Everything was handled professionally and efficiently. I
+                    couldn't be happier with the experience.
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="header">
+                    <img class="avatar" src="/static/images/5.png" alt="Jane Smith">
+                    <div class="name">Anita Sharma</div>
+                </div>
+                <div class="content">
+                    An amazing experience from start to finish. The staff were courteous and the process was seamless.
+                    Highly recommend to anyone looking for quality service.
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="header">
+                    <img class="avatar" src="/static/images/2.png" alt="Michael Johnson">
+                    <div class="name">Vijay Singh</div>
+                </div>
+                <div class="content">
+                    Extremely satisfied with the service. Everything was taken care of quickly and professionally. Will
+                    definitely use their service again in the future.
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="header">
+                    <img class="avatar" src="/static/images/6.png" alt="Emily Davis">
+                    <div class="name">Priya Patel</div>
+                </div>
+                <div class="content">
+                    The team did a fantastic job. The service was reliable and the staff were very helpful. I appreciate
+                    the attention to detail and professionalism.
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="header">
+                    <img class="avatar" src="/static/images/3.png" alt="Robert Wilson">
+                    <div class="name">Arun Das</div>
+                </div>
+                <div class="content">
+                    A seamless and hassle-free experience. The staff were friendly and the service was top-notch. I will
+                    definitely recommend them to others.
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="header">
+                    <img class="avatar" src="/static/images/7.png" alt="Linda Brown">
+                    <div class="name">Sunita Mehta</div>
+                </div>
+                <div class="content">
+                    Very pleased with the service. Everything was handled with care and efficiency. The staff were
+                    professional and courteous throughout.
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="header">
+                    <img class="avatar" src="/static/images/4.png" alt="James Miller">
+                    <div class="name">Ravi Gupta</div>
+                </div>
+                <div class="content">
+                    Outstanding service from start to finish. The process was simple and the staff were very helpful.
+                    Highly recommend this service.
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="header">
+                    <img class="avatar" src="/static/images/8.png" alt="Patricia Anderson">
+                    <div class="name">Neha Verma</div>
+                </div>
+                <div class="content">
+                    Excellent service and very professional staff. Everything was handled smoothly and efficiently. I
+                    will definitely use their services again.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Blog">
+        <h2>Our Blog</h2>
+        <div class="blog-container">
+            <div class="blog-card">
+                <img src="/static/images/b1.jpg" alt="Blog Image 1">
+                <div class="blog-card-content">
+                    <h3>Waste Plastic Kabadi Rate - Daily Updated Price</h3>
+                    <p>Last Update on Plastic kabadi rate from Scrap Uncle. We’re all familiar with the fact that making
+                        something renewed takes a lot of time and energy...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="/static/images/b2.jpg" alt="Blog Image 2">
+                <div class="blog-card-content">
+                    <h3>Thekabadiwala - Helps you Instantly</h3>
+                    <p>Thekabadiwala helps you instantly in getting rid of your scrap items. For years thekabadiwala in
+                        our society has been nature’s savior...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="static/images/b3.jpg" alt="Blog Image 3">
+                <div class="blog-card-content">
+                    <h3>Kabadi Wala Delhi - The Savior Of Nature</h3>
+                    <p>Kabadi wala Delhi is the savior of nature. Delhi’s garbage crisis is not new and over 9,500
+                        tonnes of kabadi are generated each day in the city...</p>
+                    <a href="#" class="read-more">Read More »</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-us">
+        <div class="contact-details">
+            <div>
+                <h2>CALL US</h2>
+                <p class="icon">📞 +91-00000000000, +91-99999999999</p>
+            </div>
+            <div>
+                <h2>LOCATION</h2>
+                <p class="icon">📍 121 Rock Street, 21 Basant Avenue, Amritsar, 143001</p>
+            </div>
+            <div>
+                <h2>BUSINESS HOURS</h2>
+                <p class="icon">🕒 Mon – Fri ..... 10 am – 8 pm, Sat, Sun ...... Closed</p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>CONTACT US</h2>
+            <form action="/submit_contact_form" method="post">
+                <label for="name">Enter your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Enter a valid email address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="fab-container">
+        <div class="fab-icons">
+            <a href="https://wa.me/yourwhatsappnumber" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/yourinstagramprofile" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/yourlinkedinprofile" target="_blank"><i class="fa fa-linkedin"></i></a>
+        </div>
+        <div class="fab-button" onclick="toggleFabMenu()">+</div>
+    </div>
+
+    <footer>
+        <p>copyright ©️ 2024-3024 All right reserved </p>
+    </footer>
+
+    <script>
+        function toggleFabMenu() {
+            document.querySelector('.fab-container').classList.toggle('active');
+        }
+    </script>
+    <script src="/static/scripts/script.js"></script>
 </body>
+
 </html>
