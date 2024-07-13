@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import os
+import razorpay
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -62,10 +63,10 @@ class ServiceRequest(db.Model):
     description = db.Column(db.String(500), nullable=False)
     date_time = db.Column(db.DateTime, nullable=False)
     status = db.Column(db.String(50), nullable=False)
+    payment_status = db.Column(db.String(50), nullable=False, default='pending')  # new field
 
     user = db.relationship('User', backref=db.backref('service_requests', lazy=True))
     ragpicker = db.relationship('Ragpicker', backref=db.backref('service_requests', lazy=True))
-
 
 # Routes
 @app.route('/')
@@ -226,7 +227,8 @@ def user_dashboard():
 
     user_details = UserDetails.query.filter_by(user_id=session['user_id']).first()
     service_requests = ServiceRequest.query.filter_by(user_id=session['user_id']).all()
-    return render_template('user_dashboard.html', user_details=user_details, service_requests=service_requests)
+    pending_payments = ServiceRequest.query.filter_by(user_id=session['user_id'], status='accepted', payment_status='pending').all()
+    return render_template('user_dashboard.html', user_details=user_details, service_requests=service_requests, pending_payments=pending_payments)
 
 
 @app.route('/book_service')
@@ -270,6 +272,19 @@ def update_service_request(request_id):
     db.session.commit()
     return redirect(url_for('ragpicker_dashboard'))
 
+@app.route('/payment/<int:request_id>', methods=['GET', 'POST'])
+def payment(request_id):
+    service_request = ServiceRequest.query.get_or_404(request_id)
+    client = razorpay.Client(auth=("rzp_test_7zwfHYhy9Q3cZJ", "2WeEJ60cA83lrF2VjdYd8SHl"))
+    payment = client.order.create({'amount': 50000, 'currency': 'INR', 'payment_capture': '1'})
+    return render_template('payment.html', payment=payment, request_id=request_id)
+
+@app.route('/success/<int:request_id>', methods=['POST'])
+def success(request_id):
+    service_request = ServiceRequest.query.get_or_404(request_id)
+    service_request.payment_status = 'completed'
+    db.session.commit()
+    return render_template('payment_success.html')
 
 if __name__ == '__main__':
     app.run()

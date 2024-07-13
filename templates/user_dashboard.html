@@ -22,5 +22,13 @@
         <p>Status: {{ request.status }}</p>
     </div>
     {% endfor %}
+
+    <h3>Payment</h3>
+    {% for payment in pending_payments %}
+    <div>
+        <p>Ragpicker: {{ payment.ragpicker.username }}</p>
+        <a href="{{ url_for('payment', request_id=payment.id) }}">Pay with Razorpay</a>
+    </div>
+    {% endfor %}
 </body>
 </html>
