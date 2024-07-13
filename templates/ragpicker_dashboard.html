@@ -7,8 +7,10 @@
 </head>
 <body>
     <h1>Welcome, {{ ragpicker_details.name }}</h1>
-
-    <a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a>
+    <p>Ragpicker Options:</p>
+    <ul>
+        <li><a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a></li>
+    </ul>
 
     <h2>Service Requests</h2>
     {% for request in service_requests %}
@@ -17,10 +19,12 @@
         <p>Description: {{ request.description }}</p>
         <p>Date and Time: {{ request.date_time }}</p>
         <p>Status: {{ request.status }}</p>
-        <form action="{{ url_for('update_service_request', request_id=request.id) }}" method="POST">
+        {% if request.status == 'pending' %}
+        <form action="{{ url_for('update_service_request', request_id=request.id) }}" method="post">
             <button type="submit" name="action" value="accept">Accept</button>
             <button type="submit" name="action" value="reject">Reject</button>
         </form>
+        {% endif %}
     </div>
     {% endfor %}
 </body>

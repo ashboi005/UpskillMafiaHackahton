@@ -258,7 +258,6 @@ def request_service(ragpicker_id):
 
     return render_template('request_service.html', ragpicker=ragpicker)
 
-
 @app.route('/update_service_request/<int:request_id>', methods=['POST'])
 def update_service_request(request_id):
     service_request = ServiceRequest.query.get_or_404(request_id)

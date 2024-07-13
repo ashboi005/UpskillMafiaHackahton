@@ -15,41 +15,14 @@
     
 }
 body{
-   
+    background-color: #C6EBC5;
     display: flex;
     justify-content: center;
 
 }
-.back{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 20px;
-    width: 20px;
-}
-.back button{
-    width: 20px;
-    height: 20px;
-    background: none;
-}
-.back button img{
-    width: 20px;
-    height: 20px;
-}
+
 .container{
-    background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-/* From https://css.glass */
-background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(7px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: soft;
 
     border: none;
     padding: 40px;
@@ -66,7 +39,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
 }
 #btn{
-   padding: 15px 100px;
+   padding: 10px 60px;
    margin-top: 20px;
     border-radius: 10px;
     border: none;
@@ -112,14 +85,14 @@ form input{
     }
 }
 @media only screen and (max-width: 500px) {
- form{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    
- }
- form input{
-    width: 300px;
- }
-  }
+    form{
+       display: flex;
+       flex-direction: column;
+       justify-content: start;
+       align-items: start;
+       
+    }
+    form input{
+       width: 300px;
+    }
+     }
