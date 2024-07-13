@@ -68,6 +68,20 @@ class ServiceRequest(db.Model):
     user = db.relationship('User', backref=db.backref('service_requests', lazy=True))
     ragpicker = db.relationship('Ragpicker', backref=db.backref('service_requests', lazy=True))
 
+class Review(db.Model):
+    __tablename__ = 'reviews'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('login.id'), nullable=False)
+    ragpicker_id = db.Column(db.Integer, db.ForeignKey('ragpicker_login.id'), nullable=False)
+    rating = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(500), nullable=True)
+    timestamp = db.Column(db.DateTime, nullable=False, default=db.func.current_timestamp())
+
+    user = db.relationship('User', backref=db.backref('reviews', lazy=True))
+    ragpicker = db.relationship('Ragpicker', backref=db.backref('reviews', lazy=True))
+
+
 # Routes
 @app.route('/')
 def index():
@@ -190,7 +204,15 @@ def ragpicker_dashboard():
 
     ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=session['ragpicker_id']).first()
     service_requests = ServiceRequest.query.filter_by(ragpicker_id=session['ragpicker_id']).all()
-    return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details, service_requests=service_requests)
+
+    # Fetch user details for each service request
+    service_requests_with_user_details = []
+    for request in service_requests:
+        user_details = UserDetails.query.filter_by(user_id=request.user_id).first()
+        service_requests_with_user_details.append((request, user_details))
+
+    return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details,
+                           service_requests_with_user_details=service_requests_with_user_details)
 
 
 @app.route('/user_fill_details', methods=['GET', 'POST'])
@@ -230,11 +252,15 @@ def user_dashboard():
     pending_payments = ServiceRequest.query.filter_by(user_id=session['user_id'], status='accepted', payment_status='pending').all()
     return render_template('user_dashboard.html', user_details=user_details, service_requests=service_requests, pending_payments=pending_payments)
 
-
 @app.route('/book_service')
 def book_service():
     ragpickers = RagpickerDetails.query.all()
-    return render_template('book_service.html', ragpickers=ragpickers)
+    ragpicker_ratings = {}
+    for ragpicker in ragpickers:
+        avg_rating = db.session.query(db.func.avg(Review.rating)).filter_by(ragpicker_id=ragpicker.id).scalar()
+        ragpicker_ratings[ragpicker.id] = round(avg_rating, 2) if avg_rating else 'No ratings yet'
+
+    return render_template('book_service.html', ragpickers=ragpickers, ragpicker_ratings=ragpicker_ratings)
 
 @app.route('/request_service/<int:ragpicker_id>', methods=['GET', 'POST'])
 def request_service(ragpicker_id):
@@ -284,6 +310,63 @@ def success(request_id):
     service_request.payment_status = 'completed'
     db.session.commit()
     return render_template('payment_success.html')
+
+
+@app.route('/mark_completed/<int:request_id>', methods=['POST'])
+def mark_completed(request_id):
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    service_request = ServiceRequest.query.get_or_404(request_id)
+    if service_request.user_id != session['user_id']:
+        return 'Unauthorized', 403
+
+    if service_request.status == 'accepted':
+        return redirect(url_for('submit_review', request_id=request_id))
+
+    return 'Invalid request', 400
+
+
+@app.route('/submit_review/<int:request_id>', methods=['GET', 'POST'])
+def submit_review(request_id):
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    service_request = ServiceRequest.query.get_or_404(request_id)
+    if service_request.user_id != session['user_id']:
+        return 'Unauthorized', 403
+
+    if request.method == 'POST':
+        rating = request.form['rating']
+        description = request.form['description']
+
+        review = Review(
+            user_id=session['user_id'],
+            ragpicker_id=service_request.ragpicker_id,
+            rating=rating,
+            description=description
+        )
+        db.session.add(review)
+        db.session.commit()
+
+        service_request.status = 'completed'
+        db.session.commit()
+
+        return redirect(url_for('user_dashboard'))
+
+    return render_template('submit_review.html', service_request=service_request)
+
+
+@app.route('/ragpicker_reviews')
+def ragpicker_reviews():
+    if 'ragpicker_id' not in session:
+        return redirect(url_for('ragpicker_login'))
+
+    reviews = Review.query.filter_by(ragpicker_id=session['ragpicker_id']).all()
+    average_rating = db.session.query(db.func.avg(Review.rating)).filter_by(ragpicker_id=session['ragpicker_id']).scalar()
+
+    return render_template('ragpicker_reviews.html', reviews=reviews, average_rating=average_rating)
+
 
 if __name__ == '__main__':
     app.run()

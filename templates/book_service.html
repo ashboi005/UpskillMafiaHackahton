@@ -23,6 +23,7 @@
         <p>Name: {{ ragpicker.name }}</p>
         <p>Locality: {{ ragpicker.locality }}</p>
         <p>City: {{ ragpicker.city }}</p>
+        <p>Rating: {{ ragpicker_ratings[ragpicker.id] | default('No ratings yet') }}</p>
     </div>
     {% endfor %}
 </body>

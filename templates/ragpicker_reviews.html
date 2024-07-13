@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Reviews</title>
+</head>
+<body>
+    <h1>Your Reviews</h1>
+    <p>Average Rating: {{ average_rating }}</p>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            <p>Rating: {{ review.rating }}</p>
+            <p>Description: {{ review.description }}</p>
+            <p>Date: {{ review.timestamp }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
