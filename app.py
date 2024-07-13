@@ -249,7 +249,7 @@ def user_dashboard():
 
     user_details = UserDetails.query.filter_by(user_id=session['user_id']).first()
     service_requests = ServiceRequest.query.filter_by(user_id=session['user_id']).all()
-    pending_payments = ServiceRequest.query.filter_by(user_id=session['user_id'], status='accepted', payment_status='pending').all()
+    pending_payments = ServiceRequest.query.filter_by(user_id=session['user_id'], status='completed' , payment_status='pending').all()
     return render_template('user_dashboard.html', user_details=user_details, service_requests=service_requests, pending_payments=pending_payments)
 
 @app.route('/book_service')
