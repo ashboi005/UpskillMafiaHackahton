@@ -96,8 +96,12 @@ h2 {
     margin-top: 20px;
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
+}
+.razorpay-payment-button a{
+    color: white;
+    text-decoration: none;
 }
 .razorpay-payment-button:hover {
     background-color: #45a049;
@@ -113,4 +117,11 @@ h2 {
     width: 20px;
     background: none;
     border: none;
+}
+.note{
+    color: grey;
+
+}
+p{
+
 }

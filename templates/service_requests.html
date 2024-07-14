@@ -1,12 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <title>Service Requests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .req-card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+            width: 80%;
+            max-width: 600px;
+            animation: fadeIn 0.5s ease-in-out;
+            transition: transform 0.2s;
+        }
+
+        .req-card:hover {
+            transform: scale(1.02);
+        }
+
+        .req-card p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .req-card form {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .req-card button {
+            background-color: #036800;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .req-card button:hover {
+            background-color: #033d01;
+        }
+
+        .req-card button:focus {
+            outline: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
+
 <body>
     <h2>Service Requests</h2>
     {% for request, user_details in service_requests_with_user_details %}
-    <div>
+    <div class="req-card">
         <p>User: {{ request.user.username }}</p>
         <p>Description: {{ request.description }}</p>
         <p>Date and Time: {{ request.date_time }}</p>
@@ -21,4 +96,5 @@
     </div>
     {% endfor %}
 </body>
+
 </html>

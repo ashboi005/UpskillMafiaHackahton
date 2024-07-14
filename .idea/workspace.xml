@@ -4,12 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="added home page frontend">
+    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="did some few quality of life improvements">
+      <change afterPath="$PROJECT_DIR$/static/css/ragpicker_reviews.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/scraprates.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/submit_review.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/user_service_requests.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/scraprates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/scraprates.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_bank_details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_service_requests.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_tipping.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/payment.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/user_tipping.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/fav.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/favicon-32x32.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/favicon-32x32.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ragpicker_reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_reviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/service_requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/service_requests.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/submit_review.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/submit_review.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_dashboard.html" afterDir="false" />
+    </list>
+    <list id="0d5e73c9-d36a-495d-b931-c5b59de32c4d" name="Changes by lenovo" comment="">
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +40,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -39,6 +59,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/templates/index.html">
+      <ranges>
+        <range start1="8" end1="9" start2="8" end2="9" changelist="9fff74e8-9440-453c-a932-fdd5eb59bd18" />
+        <range start1="14" end1="15" start2="14" end2="15" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
+        <range start1="16" end1="19" start2="16" end2="20" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
+        <range start1="23" end1="24" start2="24" end2="28" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
+        <range start1="263" end1="264" start2="267" end2="268" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
+        <range start1="267" end1="267" start2="271" end2="277" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -73,11 +105,11 @@
       <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\js" />
-      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\images" />
       <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\css" />
+      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\js" />
+      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\templates" />
+      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\images" />
       <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static" />
-      <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon" />
     </key>
   </component>
   <component name="RunManager" selected="Flask server.UpskillMafiaHackathon">
@@ -145,7 +177,7 @@
       <workItem from="1720797438425" duration="14835000" />
       <workItem from="1720857113926" duration="16973000" />
       <workItem from="1720877539260" duration="15059000" />
-      <workItem from="1720938624269" duration="640000" />
+      <workItem from="1720938624269" duration="14267000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -395,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720903340584</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="did some few quality of life improvements">
+      <option name="closed" value="true" />
+      <created>1720939279474</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1720939279474</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +453,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated app.py to add PostgreSQL as a database and added registering/login functions" />
     <MESSAGE value="trying to fix error 500" />
     <MESSAGE value="trying to fix error 500 again by adding to requirements.txt" />
     <MESSAGE value="trying to fix error 500 again" />
@@ -438,10 +477,11 @@
     <MESSAGE value="added favicon" />
     <MESSAGE value="added favicon to every webpage" />
     <MESSAGE value="added home page frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="added home page frontend" />
+    <MESSAGE value="did some few quality of life improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="did some few quality of life improvements" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1720633839639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720905032554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1720954261996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720956541735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

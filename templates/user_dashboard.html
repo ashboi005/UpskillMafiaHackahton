@@ -12,30 +12,9 @@
     <ul>
         <li><a href="{{ url_for('user_fill_details') }}">Edit Details</a></li>
         <li><a href="{{ url_for('book_service') }}">Book Service/Appointment</a></li>
+        <li><a href="{{ url_for('user_service_requests') }}">View Service Requests</a></li>
+        <li><a href="{{ url_for('user_tipping') }}">Tip Your Waste Whirl Partner</a></li>
+        <li><a href="{{ url_for('user_bank_details') }}">Bank Details</a></li>
     </ul>
-
-    <h2>Service Requests</h2>
-    {% for request in service_requests %}
-    <div>
-        <p>Ragpicker: {{ request.ragpicker.details.name }}</p>
-        <p>Description: {{ request.description }}</p>
-        <p>Date and Time: {{ request.date_time }}</p>
-        <p>Status: {{ request.status }}</p>
-        {% if request.status == 'accepted' %}
-        <form action="{{ url_for('mark_completed', request_id=request.id) }}" method="post">
-            <button type="submit">Mark as Completed and Review</button>
-        </form>
-        {% endif %}
-    </div>
-    {% endfor %}
-
-    <h3>Tip The Waste Whirl Worker</h3>
-    {% for payment in pending_payments %}
-    <div>
-        <p>Ragpicker: {{ payment.ragpicker.username }}</p>
-        <a href="{{ url_for('payment', request_id=payment.id) }}">Pay with Razorpay</a>
-    </div>
-    {% endfor %}
 </body>
 </html>
-

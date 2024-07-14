@@ -6,16 +6,240 @@
     <title>Submit Review</title>
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
 </head>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins","sans-sheriff";
+}
+h3{
+    font-weight: 550;
+   text-align: start;
+}
+.line{
+    border: 1px solid lightgray;
+}
+body{
+    background-color: #e3efeb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 30px;
+    border: none;
+    border-radius: 15px;
+    max-width: 500px;
+    height: 600px;
+    background-color: white;
+    box-shadow: 5px 5px 8px 5px #888888;
+
+}
+.container2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2{
+
+    text-align: center;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1{
+    text-align: center;
+}
+p{
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+    color: grey;
+    font-weight: 600;
+}
+.content{
+    padding: 10px 10px;
+    max-width: 100%;
+}
+#description{
+    margin-top: 20px;
+    width: 440px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    height: 100px;
+    max-width: 100%;
+}
+#description::placeholder{
+
+    padding: 10px;
+
+}
+#btn{
+    margin-top: 20px;
+    padding: 15px 143px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #3b886b;
+    border: none;
+    border-radius: 15px;
+    max-width: 100%;
+    cursor: pointer;
+}
+#rating{
+    height: 180px;
+    width: 435px;;
+
+}
+.stars{
+    display: flex;
+    gap: 20px;
+    padding: 0px 20px;
+    max-width: 100%;
+}
+
+input[type="checkbox"] {
+    display: none;
+
+}
+.star::before {
+    content: "\2606"; /* Unicode for empty star character */
+    color: #ccc; /* Color of unchecked star */
+}
+.star {
+    font-size: 36px; /* Adjust size as needed */
+    cursor: pointer;
+}
+
+
+/* Style the labels to display stars */
+label {
+
+    display: inline-block;
+    font-size: 24px; /* Adjust size as needed */
+    cursor: pointer;
+    color: #ccc; /* Color of unchecked star */
+}
+label::before {
+    font-size: 56px;
+    content: "\2606"; /* Unicode for empty star character */
+    color: #ccc; /* Color of unchecked star */
+}
+
+/* Style checked checkboxes to show filled stars */
+input[type="checkbox"]:checked + label::before {
+    content: "\2605"; /* Unicode for star character */
+    color: gold; /* Color of checked star */
+}
+.star-checkbox:checked + .star::before {
+    content: "\2605"; /* Unicode for filled star character */
+    color: gold; /* Color of checked star */
+}
+.star::after {
+    content: attr(data-tooltip);
+    position: absolute;
+   top: 450px; /* Position below the star */
+   font-size: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100; /* Ensure tooltip appears above other content */
+}
+
+.star:hover::after {
+    opacity: 1;
+    visibility: visible;}
+    @media only screen and (max-width: 600px){
+        .container{
+            padding: 10px;
+            width: 340px;
+            margin: auto;
+            gap: 10px;
+        }
+        h1{
+            font-size: 30px;
+        }
+        .stars{
+            gap:10px;
+           margin-left: 40px;
+
+        }
+      #description{
+        margin-left: 40px;
+        width: 340px;
+      }
+      #btn{
+        margin-left: 40px;
+        width: 320px;
+        text-align: center;
+        padding: 20px 30px;
+      }
+
+    }
+</style>
 <body>
-    <h1>Submit Review for {{ service_request.ragpicker.username }}</h1>
-    <form action="{{ url_for('submit_review', request_id=service_request.id) }}" method="post">
-        <label for="rating">Rating (out of 5):</label>
-        <input type="number" id="rating" name="rating" min="1" max="5" required>
-        <br>
-        <label for="description">Review:</label>
-        <textarea id="description" name="description" required></textarea>
-        <br>
-        <button type="submit">Submit Review</button>
-    </form>
+    <div class="container">
+        <h3>Submit Review for {{ service_request.ragpicker.username }}</h3>
+        <div class="line"></div>
+        <div class="container2">
+            <div class="content">
+                <h1>How was your experience?</h1>
+                <p>This review will help us improve our services and make them better for all users.</p>
+            </div>
+            <form action="{{ url_for('submit_review', request_id=service_request.id) }}" method="post" style="max-width: 100%;">
+                <div class="stars" style="display: flex; gap: 20px; padding: 0px 20px;">
+                    <input type="checkbox" id="star5" name="rating" value="5" style="display: none;">
+                    <label for="star5" class="star" data-tooltip="Perfection" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+
+                    <input type="checkbox" id="star4" name="rating" value="4" style="display: none;">
+                    <label for="star4" class="star" data-tooltip="Good Performance" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+
+                    <input type="checkbox" id="star3" name="rating" value="3" style="display: none;">
+                    <label for="star3" class="star" data-tooltip="Average Performance" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+
+                    <input type="checkbox" id="star2" name="rating" value="2" style="display: none;">
+                    <label for="star2" class="star" data-tooltip="Below Average Performance" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+
+                    <input type="checkbox" id="star1" name="rating" value="1" style="display: none;">
+                    <label for="star1" class="star" data-tooltip="Poor Performance" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+                </div>
+                <br>
+                <textarea id="description" name="description" placeholder="Share Feedback" required></textarea>
+                <br>
+                <button type="submit" id="btn">Submit Review</button>
+            </form>
+        </div>
+    </div>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+    const stars = document.querySelectorAll('.star');
+
+    stars.forEach((star, index) => {
+        star.addEventListener('click', function() {
+            // Check all checkboxes up to this star
+            for (let i = 0; i <= index; i++) {
+                const checkbox = document.getElementById(`checkbox${i + 1}`);
+                checkbox.checked = true;
+            }
+
+            // Uncheck all checkboxes after this star
+            for (let i = index ; i < stars.length; i++) {
+                const checkbox = document.getElementById(`checkbox${i + 1}`);
+                checkbox.checked = false;
+            }
+        });
+    });
+});</script>
 </body>
 </html>

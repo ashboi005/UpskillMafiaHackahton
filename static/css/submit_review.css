@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Confirmation</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
-</head>
-<style>
-    *{
+*{
     margin: 0;
     padding: 0;
     font-family: "Poppins","sans-sheriff";
@@ -187,24 +178,3 @@ input[type="checkbox"]:checked + label::before {
       }
 
     }
-</style>
-<body>
-    <div class="container">
-        <h2>Payment Confirmation</h2>
-        <p>Thank you for choosing Waste Whirl!</p>
-        <p id="money">Total Amount: ₹{{ payment.amount / 100 }}</p>
-        <form action="/success/{{ request_id }}" method="post">
-            <script src="https://checkout.razorpay.com/v1/checkout.js"
-                    data-key="rzp_test_7zwfHYhy9Q3cZJ"
-                    data-amount="10000"
-                    data-currency="INR"
-                    data-order_id="{{ payment.id }}"
-                    data-name="Waste Whirl"
-                    data-netbanking="true"
-                    data-prefill.name="Waste Whirl">
-            </script>
-            <input type="hidden" name="shopping_order_id" value="{{ request_id }}">
-        </form>
-    </div>
-</body>
-</html>

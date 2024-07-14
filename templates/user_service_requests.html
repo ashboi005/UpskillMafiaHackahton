@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Service Requests</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="stylesheet" href="static/css/user_service_requests.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+</head>
+<body>
+    <div class="head">
+    <h1>Service Requests</h1>
+</div>
+<div class="container">
+    {% for request in service_requests %}
+    <div class="item">
+        <p>Ragpicker: {{ request.ragpicker.details.name }}</p>
+        <p>Description: {{ request.description }}</p>
+        <p>Date and Time: {{ request.date_time }}</p>
+        <p>Status: {{ request.status }}</p>
+        {% if request.status == 'accepted' %}
+        <form action="{{ url_for('mark_completed', request_id=request.id) }}" method="post">
+            <button type="submit">Mark as Completed and Review</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

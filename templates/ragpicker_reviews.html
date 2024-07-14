@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <title>Your Reviews</title>
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="stylesheet" href="static/css/ragpicker_reviews.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        </style>
 </head>
 <body>
+    <div class="head">
+        <p class="rating">Average : {{ average_rating }}/5</p>
     <h1>Your Reviews</h1>
-    <p>Username: {{ ragpicker_details.name }}</p>
-    <p>Average Rating: {{ average_rating }}</p>
+    <p>{{ ragpicker_details.name }}</p>
+</div>
+
+
     <ul>
-        {% for review in reviews %}
+            {% for review in reviews %}
         <li>
-            <p>Rating: {{ review.rating }}</p>
-            <p>Description: {{ review.description }}</p>
+            <div class="green"><p >Rating: {{ review.rating }}/5</p></div>
+
+            <p>{{ review.description }}</p>
             <p>Date: {{ review.timestamp }}</p>
         </li>
-        {% endfor %}
+            {%  endfor %}
     </ul>
 </body>
 </html>

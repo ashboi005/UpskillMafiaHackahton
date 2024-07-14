@@ -89,6 +89,18 @@ class Review(db.Model):
     user = db.relationship('User', backref=db.backref('reviews', lazy=True))
     ragpicker = db.relationship('Ragpicker', backref=db.backref('reviews', lazy=True))
 
+class BankDetails(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('login.id'), nullable=False)
+    account_holder_name = db.Column(db.String(100), nullable=False)
+    account_number = db.Column(db.String(100), nullable=False)
+    ifsc_code = db.Column(db.String(11), nullable=False)
+    swift_code = db.Column(db.String(11), nullable=True)
+    bank_name = db.Column(db.String(100), nullable=False)
+    branch = db.Column(db.String(100), nullable=False)
+
+    user = db.relationship('User', backref=db.backref('bank_details', uselist=False))
+
 # Routes
 @app.route('/')
 def index():
@@ -111,6 +123,10 @@ def submit_contact_form():
 
     flash('Thank you for your message. We will get back to you soon.', 'success')
     return redirect(url_for('index'))
+
+@app.route('/scraprates')
+def scraprates():
+    return render_template('scraprates.html')
 
 @app.route('/choose_register')
 def choose_register():
@@ -233,13 +249,18 @@ def ragpicker_dashboard():
     return render_template('ragpicker_dashboard.html', ragpicker_details=ragpicker_details)
 
 @app.route('/service_requests')
-def service_requests():
+def service_requests_view():
+    if 'ragpicker_id' not in session:
+        return redirect(url_for('ragpicker_login'))
+
+    service_requests = ServiceRequest.query.filter_by(ragpicker_id=session['ragpicker_id']).all()
     service_requests_with_user_details = []
     for request in service_requests:
         user_details = UserDetails.query.filter_by(user_id=request.user_id).first()
         service_requests_with_user_details.append((request, user_details))
 
-    return render_template('service_requests.html', service_requests_with_user_details=service_requests_with_user_details)
+    return render_template('service_requests.html',
+                           service_requests_with_user_details=service_requests_with_user_details)
 
 @app.route('/user_fill_details', methods=['GET', 'POST'])
 def user_fill_details():
@@ -274,9 +295,59 @@ def user_dashboard():
         return redirect(url_for('login'))
 
     user_details = UserDetails.query.filter_by(user_id=session['user_id']).first()
+    return render_template('user_dashboard.html', user_details=user_details)
+
+@app.route('/user_service_requests')
+def user_service_requests():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
     service_requests = ServiceRequest.query.filter_by(user_id=session['user_id']).all()
-    pending_payments = ServiceRequest.query.filter_by(user_id=session['user_id'], status='completed' , payment_status='pending').all()
-    return render_template('user_dashboard.html', user_details=user_details, service_requests=service_requests, pending_payments=pending_payments)
+    return render_template('user_service_requests.html', service_requests=service_requests)
+
+@app.route('/user_tipping')
+def user_tipping():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    pending_payments = ServiceRequest.query.filter_by(user_id=session['user_id'], status='completed', payment_status='pending').all()
+
+    return render_template('user_tipping.html', pending_payments=pending_payments)
+
+@app.route('/user_bank_details', methods=['GET', 'POST'])
+def user_bank_details():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    bank_details = BankDetails.query.filter_by(user_id=user_id).first()
+
+    if request.method == 'POST':
+        if bank_details:
+            bank_details.account_holder_name = request.form['account_holder_name']
+            bank_details.account_number = request.form['account_number']
+            bank_details.ifsc_code = request.form['ifsc_code']
+            bank_details.swift_code = request.form['swift_code']
+            bank_details.bank_name = request.form['bank_name']
+            bank_details.branch = request.form['branch']
+        else:
+            new_bank_details = BankDetails(
+                user_id=user_id,
+                account_holder_name=request.form['account_holder_name'],
+                account_number=request.form['account_number'],
+                ifsc_code=request.form['ifsc_code'],
+                swift_code=request.form['swift_code'],
+                bank_name=request.form['bank_name'],
+                branch=request.form['branch']
+            )
+            db.session.add(new_bank_details)
+
+        db.session.commit()
+        return redirect(url_for('user_dashboard'))
+
+    return render_template('user_bank_details.html', bank_details=bank_details)
+
+
 
 @app.route('/book_service')
 def book_service():
@@ -323,12 +394,22 @@ def update_service_request(request_id):
     db.session.commit()
     return redirect(url_for('ragpicker_dashboard'))
 
-@app.route('/payment/<int:request_id>', methods=['GET', 'POST'])
+
+@app.route('/payment/<int:request_id>', methods=['POST'])
 def payment(request_id):
     service_request = ServiceRequest.query.get_or_404(request_id)
     client = razorpay.Client(auth=("rzp_test_7zwfHYhy9Q3cZJ", "2WeEJ60cA83lrF2VjdYd8SHl"))
-    payment = client.order.create({'amount': 50000, 'currency': 'INR', 'payment_capture': '1'})
+
+    amount = 10
+
+    payment = client.order.create({
+        'amount': amount * 100,
+        'currency': 'INR',
+        'payment_capture': '1'
+    })
+
     return render_template('payment.html', payment=payment, request_id=request_id)
+
 
 @app.route('/success/<int:request_id>', methods=['POST'])
 def success(request_id):
@@ -363,7 +444,7 @@ def submit_review(request_id):
         return 'Unauthorized', 403
 
     if request.method == 'POST':
-        rating = request.form['rating']
+        rating = int(request.form['rating'])  # Get rating as an integer
         description = request.form['description']
 
         review = Review(
@@ -381,6 +462,7 @@ def submit_review(request_id):
         return redirect(url_for('user_dashboard'))
 
     return render_template('submit_review.html', service_request=service_request)
+
 
 
 @app.route('/ragpicker_reviews')
