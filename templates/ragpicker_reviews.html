@@ -1,31 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Your Reviews</title>
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
     <link rel="stylesheet" href="static/css/ragpicker_reviews.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-        </style>
+
+    </style>
 </head>
+
 <body>
-    <div class="head">
-        <p class="rating">Average : {{ average_rating }}/5</p>
-    <h1>Your Reviews</h1>
-    <p>{{ ragpicker_details.name }}</p>
-</div>
-
-
-    <ul>
+    <nav>
+        <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+       <ul class="nav-links">
+            <li class="close-btn"><i class="fa fa-times" onclick="toggleMenu()"></i></li>
+            <li><a href="{{ url_for("index") }}">Home</a></li>
+            <li><a href="{{ url_for('ragpicker_dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a> </li>
+            <li><a href="{{ url_for('ragpicker_reviews') }}">Your Reviews and Ratings</a> </li>
+            <li><a href="{{ url_for('service_requests_view') }}">Service Requests</a> </li>
+        </ul>
+        <a href="#" id="login-btn">{{ ragpicker_details.name }}</a>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+    </nav>
+    <div class="maincontainer">
+        <div class="head">
+            <p class="rating">Average : {{ average_rating }}/5</p>
+            <h1>Your Reviews</h1>
+            <p>{{ ragpicker_details.name }}</p>
+        </div>
+        <ul class="reviews">
             {% for review in reviews %}
-        <li>
-            <div class="green"><p >Rating: {{ review.rating }}/5</p></div>
-
-            <p>{{ review.description }}</p>
-            <p>Date: {{ review.timestamp }}</p>
-        </li>
-            {%  endfor %}
-    </ul>
+            <li>
+                <div class="green">
+                    <p>Rating: {{ review.rating }}/5</p>
+                </div>
+                <p>{{ review.description }}</p>
+                <p>Date: {{ review.timestamp }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 </body>
+
 </html>

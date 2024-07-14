@@ -7,91 +7,135 @@
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
     <title>Ragpicker Dashboard</title>
     <style>
-        body {
-            display: flex;
+        * {
+            padding: 0;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        .navbar {
-            width: 250px;
-            height: 100vh;
-            background-color: #036800;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        nav {
             position: fixed;
             top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
-            animation: slideIn 0.5s forwards;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 15px 0;
-            padding: 10px 20px;
-            text-align: center;
             width: 100%;
-            transition: background-color 0.3s, transform 0.3s;
+            height: 60px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            z-index: 10000000000;
         }
 
-        .navbar a:hover {
-            background-color: #3cb838;
-            transform: scale(1.05);
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        li {
+            padding: 15px;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+
+        }
+
+        li a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        li a:hover {
+            color: #036800;
+            transform: scale(1.1);
+        }
+
+        li:hover {
+            color: #036800;
+            transform: scale(1.1);
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-left: 40px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        #login-btn {
+            color: #036800;
+            background-color: #C6EBC5;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-right: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        #login-btn:hover {
+            background-color: #A8D8A8;
+            transform: scale(1.1);
+
         }
 
         .content {
-            margin-left: 250px;
-            padding: 20px;
-            flex-grow: 1;
-            animation: fadeIn 1s;
-        }
+            position: relative;
+            top: 15vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
 
-        h1 {
-            color: #333;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(-250px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
         }
     </style>
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a>
-        <a href="{{ url_for('ragpicker_reviews') }}">Your Reviews and Ratings</a>
-        <a href="{{ url_for('service_requests_view') }}">Service Requests</a>
-    </div>
+    <nav>
+        <img src="static/images/logo4.png" alt="Waste Whirl" class="logo">
+        <ul class="nav-links">
+            <li class="close-btn"><i class="fa fa-times" onclick="toggleMenu()"></i></li>
+            <li><a href="{{ url_for("index") }}">Home</a></li>
+            <li><a href="{{ url_for('ragpicker_dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a> </li>
+            <li><a href="{{ url_for('ragpicker_reviews') }}">Your Reviews and Ratings</a> </li>
+            <li><a href="{{ url_for('service_requests_view') }}">Service Requests</a> </li>
+        </ul>
+        <a href="#" id="login-btn">{{ ragpicker_details.name }}</a>
+
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+    </nav>
     <div class="content">
         <h1>Welcome, {{ ragpicker_details.name }}</h1> <br>
         <h2> Your Details:</h2>
         <p>Contact Number: {{ ragpicker_details.contact_number }} <br>
-           Locality: {{ ragpicker_details.locality }} <br>
-           City: {{ ragpicker_details.city }} <br>
-           State: {{ ragpicker_details.state }} <br>
-           Pincode: {{ ragpicker_details.pincode }}
+            Locality: {{ ragpicker_details.locality }} <br>
+            City: {{ ragpicker_details.city }} <br>
+            State: {{ ragpicker_details.state }} <br>
+            Pincode: {{ ragpicker_details.pincode }}
         </p>
     </div>
 </body>

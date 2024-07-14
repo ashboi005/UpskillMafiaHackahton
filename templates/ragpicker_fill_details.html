@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,37 +10,62 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
+
 </head>
+
 <body>
+    <nav>
+        <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+        <ul class="nav-links">
+            <li class="close-btn"><i class="fa fa-times" onclick="toggleMenu()"></i></li>
+            <li><a href="{{ url_for("index") }}">Home</a></li>
+            <li><a href="{{ url_for('ragpicker_dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('ragpicker_fill_details') }}">Edit Details</a> </li>
+            <li><a href="{{ url_for('ragpicker_reviews') }}">Your Reviews and Ratings</a> </li>
+            <li><a href="{{ url_for('service_requests_view') }}">Service Requests</a> </li>
+        </ul>
+        <a href="#" id="login-btn">{{ ragpicker_details.name }}</a>
+
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+    </nav>
     <div class="container">
         <h1>FILL YOUR DETAILS</h1>
 
-    <form action="{{ url_for('ragpicker_fill_details') }}" method="POST">
-        <div class="items">
-            <label for="name">Enter Your Name :</label>
-        <input type="text" name="name" id="name" placeholder="Name" value="{{ ragpicker_details.name if ragpicker_details else '' }}" required><br>
-        </div>
-        <div class="items">
-            <label for="phoneno.">Enter Your Phone :</label>
-        <input type="text" name="contact_number" id="phoneno." placeholder="Contact Number" value="{{ ragpicker_details.contact_number if ragpicker_details else '' }}" required><br>
-    </div>
-        <div class="items">
-                <label for="locality">Enter Your Locality :</label>
-        <input type="text" name="locality" id="locality" placeholder="Locality" value="{{ ragpicker_details.locality if ragpicker_details else '' }}" required><br>
-    <div class="items">
-        <label for="city">Enter Your City :</label>
-        <input type="text" name="city" id="city" placeholder="City" value="{{ ragpicker_details.city if ragpicker_details else '' }}" required><br>
-    </div>
-    <div class="items">
-        <label for="state">Enter Your State :</label>
-        <input type="text" name="state" placeholder="State" value="{{ ragpicker_details.state if ragpicker_details else '' }}" required><br>
-    </div>
+        <form action="{{ url_for('ragpicker_fill_details') }}" method="POST">
             <div class="items">
-                <label for="pincode">Enter Your Pincode :</label>
-        <input type="text" name="pincode" id="pincode" placeholder="Pincode" value="{{ ragpicker_details.pincode if ragpicker_details else '' }}" required><br>
-        <div class="btn">
-            <button type="submit" id="btn">Submit</button></div>
-    </form>
+                <label for="name">Enter Your Name :</label>
+                <input type="text" name="name" id="name" placeholder="Name"
+                    value="{{ ragpicker_details.name if ragpicker_details else '' }}" required><br>
+            </div>
+            <div class="items">
+                <label for="phoneno.">Enter Your Phone :</label>
+                <input type="text" name="contact_number" id="phoneno." placeholder="Contact Number"
+                    value="{{ ragpicker_details.contact_number if ragpicker_details else '' }}" required><br>
+            </div>
+            <div class="items">
+                <label for="locality">Enter Your Locality :</label>
+                <input type="text" name="locality" id="locality" placeholder="Locality"
+                    value="{{ ragpicker_details.locality if ragpicker_details else '' }}" required><br>
+                <div class="items">
+                    <label for="city">Enter Your City :</label>
+                    <input type="text" name="city" id="city" placeholder="City"
+                        value="{{ ragpicker_details.city if ragpicker_details else '' }}" required><br>
+                </div>
+                <div class="items">
+                    <label for="state">Enter Your State :</label>
+                    <input type="text" name="state" placeholder="State"
+                        value="{{ ragpicker_details.state if ragpicker_details else '' }}" required><br>
+                </div>
+                <div class="items">
+                    <label for="pincode">Enter Your Pincode :</label>
+                    <input type="text" name="pincode" id="pincode" placeholder="Pincode"
+                        value="{{ ragpicker_details.pincode if ragpicker_details else '' }}" required><br>
+                    <div class="btn">
+                        <button type="submit" id="btn">Submit</button>
+                    </div>
+        </form>
 </body>
-</html>
 
+</html>
