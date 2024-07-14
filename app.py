@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 import os
 import razorpay
@@ -16,6 +16,14 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+
+class ContactFormSubmission(db.Model):
+    __tablename__ = 'contact_form_submission'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    timestamp = db.Column(db.DateTime, default=db.func.current_timestamp())
 
 class Ragpicker(db.Model):
     __tablename__ = 'ragpicker_login'
@@ -81,11 +89,28 @@ class Review(db.Model):
     user = db.relationship('User', backref=db.backref('reviews', lazy=True))
     ragpicker = db.relationship('Ragpicker', backref=db.backref('reviews', lazy=True))
 
-
 # Routes
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/submit_contact_form', methods=['POST'])
+def submit_contact_form():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    message = request.form.get('message')
+
+    if not name or not email or not message:
+        flash('All fields are required.', 'danger')
+        return redirect(url_for('index'))
+
+    # Optionally, you can store the submission in the database
+    new_submission = ContactFormSubmission(name=name, email=email, message=message)
+    db.session.add(new_submission)
+    db.session.commit()
+
+    flash('Thank you for your message. We will get back to you soon.', 'success')
+    return redirect(url_for('index'))
 
 @app.route('/choose_register')
 def choose_register():
@@ -364,9 +389,15 @@ def ragpicker_reviews():
         return redirect(url_for('ragpicker_login'))
 
     reviews = Review.query.filter_by(ragpicker_id=session['ragpicker_id']).all()
+    ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=session['ragpicker_id']).first()
     average_rating = db.session.query(db.func.avg(Review.rating)).filter_by(ragpicker_id=session['ragpicker_id']).scalar()
 
-    return render_template('ragpicker_reviews.html', reviews=reviews, average_rating=average_rating)
+    # Round the average rating to one decimal place
+    if average_rating is not None:
+        average_rating = round(average_rating, 1)
+
+    return render_template('ragpicker_reviews.html', reviews=reviews, average_rating=average_rating, ragpicker_details=ragpicker_details)
+
 
 
 if __name__ == '__main__':

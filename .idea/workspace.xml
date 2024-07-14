@@ -4,41 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="added favicon to every webpage">
-      <change afterPath="$PROJECT_DIR$/static/css/payment.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/payment_success.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/b1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/credit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/del.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/fav.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/fav2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/logo3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/logo4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/main-img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/planner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/payment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/service_requests.html" afterDir="false" />
+    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="added home page frontend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/double_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/double_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/double_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/double_register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payment_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment_success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/ragpicker_reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_reviews.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,24 +49,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Flask server.Flask (app.py).executor": "Run",
-    "Flask server.UpskillMafiaHackathon.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Ashwath Soni/PycharmProjects/UpskillMafiaHackathon/static/css",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Flask server.Flask (app.py).executor&quot;: &quot;Run&quot;,
+    &quot;Flask server.UpskillMafiaHackathon.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ashwath Soni/PycharmProjects/UpskillMafiaHackathon/static/css&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\css" />
@@ -173,7 +144,8 @@
       <workItem from="1720795237735" duration="1267000" />
       <workItem from="1720797438425" duration="14835000" />
       <workItem from="1720857113926" duration="16973000" />
-      <workItem from="1720877539260" duration="11861000" />
+      <workItem from="1720877539260" duration="15059000" />
+      <workItem from="1720938624269" duration="640000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -415,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720877005468</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="added home page frontend">
+      <option name="closed" value="true" />
+      <created>1720903340584</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1720903340584</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated app.py to make a mock run" />
     <MESSAGE value="updated app.py to add PostgreSQL as a database and added registering/login functions" />
     <MESSAGE value="trying to fix error 500" />
     <MESSAGE value="trying to fix error 500 again by adding to requirements.txt" />
@@ -458,10 +437,11 @@
     <MESSAGE value="fixed a bug with payments" />
     <MESSAGE value="added favicon" />
     <MESSAGE value="added favicon to every webpage" />
-    <option name="LAST_COMMIT_MESSAGE" value="added favicon to every webpage" />
+    <MESSAGE value="added home page frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="added home page frontend" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1720633839639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720903322809" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720905032554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

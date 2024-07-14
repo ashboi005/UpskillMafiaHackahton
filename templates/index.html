@@ -204,16 +204,26 @@
             </div>
         </div>
     </section>
-
+        {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     <section id="contact-us">
         <div class="contact-details">
             <div>
                 <h2>CALL US</h2>
-                <p class="icon">📞 +91-00000000000, +91-99999999999</p>
+                <p class="icon">📞 +91-7009023965, +91-9814536074</p>
             </div>
             <div>
                 <h2>LOCATION</h2>
-                <p class="icon">📍 121 Rock Street, 21 Basant Avenue, Amritsar, 143001</p>
+                <p class="icon">📍 21 Basant Avenue, Amritsar, Punjab, 143001</p>
             </div>
             <div>
                 <h2>BUSINESS HOURS</h2>
