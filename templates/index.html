@@ -12,16 +12,20 @@
 </head>
 
 <body>
-    <nav>
+     <nav>
         <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
-        <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="#">Scrap Rates</a></li>
+        <ul class="nav-links">
+            <li class="close-btn"><i class="fa fa-times" onclick="toggleMenu()"></i></li>
+            <li><a href="{{ url_for("index") }}">Home</a></li>
+            <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
             <li><a href="#Whyus">Why us?</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#contact-us">Contact Us</a></li>
         </ul>
-        <a href="{{ url_for('choose_register')}}" id="login-btn">Sign-up/Login</a>
+        <a href="{{ url_for("choose_register") }}" id="login-btn">Sign-up/Login</a>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
     </nav>
 
     <section id="hero">
@@ -261,10 +265,16 @@
         <p>copyright ©️ 2024-3024 All right reserved </p>
     </footer>
 
-    <script>
+     <script>
         function toggleFabMenu() {
             document.querySelector('.fab-container').classList.toggle('active');
         }
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
     </script>
     <script src="/static/scripts/script.js"></script>
 </body>

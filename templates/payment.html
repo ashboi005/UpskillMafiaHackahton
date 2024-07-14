@@ -190,9 +190,9 @@ input[type="checkbox"]:checked + label::before {
 </style>
 <body>
     <div class="container">
-        <h2>Payment Confirmation</h2>
+        <h2>Tip Confirmation</h2>
         <p>Thank you for choosing Waste Whirl!</p>
-        <p id="money">Total Amount: ₹{{ payment.amount / 100 }}</p>
+        <p id="money">Tip Amount: ₹{{ payment.amount / 100 }}</p>
         <form action="/success/{{ request_id }}" method="post">
             <script src="https://checkout.razorpay.com/v1/checkout.js"
                     data-key="rzp_test_7zwfHYhy9Q3cZJ"
