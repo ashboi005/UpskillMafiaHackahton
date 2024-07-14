@@ -4,48 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="fixed front end bugs">
-      <change afterPath="$PROJECT_DIR$/static/css/about_us_css.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/blog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/user_dashboards.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/b3.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/b4.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/bush1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/bush2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/leaf1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/leaf2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/mount1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/mount2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/about_us_js.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/about_us.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+    <list default="true" id="9fff74e8-9440-453c-a932-fdd5eb59bd18" name="Changes" comment="added a photo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/payment_success.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/payment_success.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book_service.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book_service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payment_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payment_success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/request_service.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/request_service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/submit_review.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/submit_review.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_dashboard.html" afterDir="false" />
     </list>
-    <list id="0d5e73c9-d36a-495d-b931-c5b59de32c4d" name="Changes by lenovo" comment="">
-      <change beforePath="$PROJECT_DIR$/static/css/filldetails.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/filldetails.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/ragpicker_reviews.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ragpicker_reviews.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ragpicker_fill_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_fill_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ragpicker_reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ragpicker_reviews.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/service_requests.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/service_requests.html" afterDir="false" />
-    </list>
+    <list id="0d5e73c9-d36a-495d-b931-c5b59de32c4d" name="Changes by lenovo" comment="front end changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,27 +37,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/templates/ragpicker_dashboard.html">
-      <ranges>
-        <range start1="9" end1="11" start2="9" end2="11" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="12" end1="14" start2="12" end2="25" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="16" end1="20" start2="27" end2="28" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="22" end1="23" start2="30" end2="34" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="24" end1="25" start2="35" end2="35" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="26" end1="28" start2="36" end2="46" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="30" end1="32" start2="48" end2="56" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="33" end1="37" start2="57" end2="91" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="38" end1="38" start2="92" end2="93" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="40" end1="43" start2="95" end2="99" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="46" end1="67" start2="102" end2="108" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="68" end1="76" start2="109" end2="109" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="81" end1="86" start2="114" end2="130" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-        <range start1="87" end1="88" start2="131" end2="132" changelist="9fff74e8-9440-453c-a932-fdd5eb59bd18" />
-        <range start1="90" end1="94" start2="134" end2="138" changelist="0d5e73c9-d36a-495d-b931-c5b59de32c4d" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -105,24 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Flask server.Flask (app.py).executor": "Run",
-    "Flask server.UpskillMafiaHackathon.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Ashwath Soni/PycharmProjects/UpskillMafiaHackathon/static/css",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Flask server.Flask (app.py).executor&quot;: &quot;Run&quot;,
+    &quot;Flask server.UpskillMafiaHackathon.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ashwath Soni/PycharmProjects/UpskillMafiaHackathon/static/css&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ashwath Soni\PycharmProjects\UpskillMafiaHackathon\static\css" />
@@ -201,7 +142,8 @@
       <workItem from="1720797438425" duration="14835000" />
       <workItem from="1720857113926" duration="16973000" />
       <workItem from="1720877539260" duration="15059000" />
-      <workItem from="1720938624269" duration="27030000" />
+      <workItem from="1720938624269" duration="28286000" />
+      <workItem from="1720971207329" duration="704000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <option name="closed" value="true" />
@@ -499,7 +441,31 @@
       <option name="project" value="LOCAL" />
       <updated>1720960574564</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="improved the front end on all fronts">
+      <option name="closed" value="true" />
+      <created>1720969448312</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1720969448312</updated>
+    </task>
+    <task id="LOCAL-00039" summary="added a photo">
+      <option name="closed" value="true" />
+      <created>1720970232652</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1720970232652</updated>
+    </task>
+    <task id="LOCAL-00040" summary="front end changes">
+      <option name="closed" value="true" />
+      <created>1720970763894</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1720970763894</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,9 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="trying to fix database issue" />
-    <MESSAGE value="trying to fix database issue again" />
-    <MESSAGE value="fixing login" />
     <MESSAGE value="added secret key to manage sessions and fix login" />
     <MESSAGE value="added Ragpicker register and login fucntionality" />
     <MESSAGE value="added Ragpicker Dashboard (to fill details and also to edit them)" />
@@ -542,10 +505,13 @@
     <MESSAGE value="fixed a bug with scrap rates" />
     <MESSAGE value="fixed a bug with index.html" />
     <MESSAGE value="fixed front end bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed front end bugs" />
+    <MESSAGE value="improved the front end on all fronts" />
+    <MESSAGE value="added a photo" />
+    <MESSAGE value="front end changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="front end changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1720954261996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720969063531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/UpskillMafiaHackathon$UpskillMafiaHackathon.coverage" NAME="UpskillMafiaHackathon Coverage Results" MODIFIED="1720971383381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
