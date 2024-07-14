@@ -103,7 +103,7 @@ p{
     max-width: 100%;
 }
 
-input[type="checkbox"] {
+input[type="radio"] {
     display: none;
 
 }
@@ -132,7 +132,7 @@ label::before {
 }
 
 /* Style checked checkboxes to show filled stars */
-input[type="checkbox"]:checked + label::before {
+input[type="radio"]:checked + label::before {
     content: "\2605"; /* Unicode for star character */
     color: gold; /* Color of checked star */
 }
@@ -229,14 +229,14 @@ input[type="checkbox"]:checked + label::before {
         star.addEventListener('click', function() {
             // Check all checkboxes up to this star
             for (let i = 0; i <= index; i++) {
-                const checkbox = document.getElementById(`checkbox${i + 1}`);
-                checkbox.checked = true;
+                const radio = document.getElementById(`star${i + 1}`);
+                radio.checked = true;
             }
 
             // Uncheck all checkboxes after this star
             for (let i = index ; i < stars.length; i++) {
-                const checkbox = document.getElementById(`checkbox${i + 1}`);
-                checkbox.checked = false;
+                const radio = document.getElementById(`star${i + 1}`);
+                radio.checked = false;
             }
         });
     });

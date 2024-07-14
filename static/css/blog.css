@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    z-index: 10000000000;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+li {
+    padding: 15px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s, transform 0.3s;
+}
+
+li a:hover {
+    color: #036800;
+    transform: scale(1.1);
+}
+
+li:hover {
+    color: #036800;
+    transform: scale(1.1);
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-left: 130px;
+    transition: transform 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#login-btn {
+    color: #036800;
+    background-color: #C6EBC5;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-right: 170px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+#login-btn:hover {
+    background-color: #A8D8A8;
+    transform: scale(1.1);
+}
+
+.papa {
+    margin: 0 135px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    position: relative;
+    top: 12vh;
+
+}
+
+.mainblog {
+    width: 55vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 20vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}

@@ -5,8 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Service</title>
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+         *{
+            font-family: "Poppins","sans-sheriff";
+         }
+        body {
+
+
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f2f2f2;
+        }
+        h1 {
+
+            color: #333;
+            text-align: center;
+        }
+        form {
+
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="datetime-local"],
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        textarea {
+            height: 100px;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .container{
+            margin-top: 7%;
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            input[type="datetime-local"],
+            textarea {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+    <form action="{{ url_for('request_service', ragpicker_id=ragpicker.id) }}" method="POST">
     <h1>Request Service from {{ ragpicker.name }}</h1>
     <p>Locality: {{ ragpicker.locality }}</p>
     <p>City: {{ ragpicker.city }}</p>
@@ -14,10 +89,10 @@
     <p>Pincode: {{ ragpicker.pincode }}</p>
     <p>Contact Number: {{ ragpicker.contact_number }}</p>
 
-    <form action="{{ url_for('request_service', ragpicker_id=ragpicker.id) }}" method="POST">
         <textarea name="description" placeholder="Work Description/Request" required></textarea><br>
         <input type="datetime-local" name="date_time" required><br>
         <button type="submit">Request Service</button>
     </form>
+</div>
 </body>
 </html>

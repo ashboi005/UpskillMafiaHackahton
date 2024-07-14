@@ -19,7 +19,7 @@
             <li><a href="{{ url_for("index") }}">Home</a></li>
             <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
             <li><a href="#Whyus">Why us?</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="{{ url_for("about_us") }}">About Us</a></li>
             <li><a href="#contact-us">Contact Us</a></li>
         </ul>
         <a href="{{ url_for("choose_register") }}" id="login-btn">Sign Up/Login</a>
@@ -182,28 +182,28 @@
             <div class="blog-card">
                 <img src="/static/images/b1.jpg" alt="Blog Image 1">
                 <div class="blog-card-content">
-                    <h3>Waste Plastic Kabadi Rate - Daily Updated Price</h3>
-                    <p>Last Update on Plastic kabadi rate from Scrap Uncle. We’re all familiar with the fact that making
-                        something renewed takes a lot of time and energy...</p>
-                    <a href="#" class="read-more">Read More »</a>
+                    <h3>NEED  OF WASTE DISPOSAL</h3>
+                    <p>In every household, rags are indispensable for cleaning up spills, wiping down surfaces, and performing various other tasks.
+                    However, improper disposal of used rags can pose...</p>
+                    <a href="{{ url_for("blog1")}}" class="read-more">Read More »</a>
                 </div>
             </div>
             <div class="blog-card">
                 <img src="/static/images/b2.jpg" alt="Blog Image 2">
                 <div class="blog-card-content">
-                    <h3>Thekabadiwala - Helps you Instantly</h3>
-                    <p>Thekabadiwala helps you instantly in getting rid of your scrap items. For years thekabadiwala in
-                        our society has been nature’s savior...</p>
-                    <a href="#" class="read-more">Read More »</a>
+                    <h3>METHODS OF WASTE DISPOSAL</h3>
+                    <p>In today's world, effective waste disposal is critical for maintaining a clean and sustainable environment.
+                    As our population grows, so does the amount of waste we produce, making it essential...</p>
+                    <a href="{{ url_for("blog2") }}" class="read-more">Read More »</a>
                 </div>
             </div>
             <div class="blog-card">
-                <img src="static/images/b3.jpg" alt="Blog Image 3">
+                <img src="static/images/logo4.png" alt="Blog Image 3">
                 <div class="blog-card-content">
-                    <h3>Kabadi Wala Delhi - The Savior Of Nature</h3>
-                    <p>Kabadi wala Delhi is the savior of nature. Delhi’s garbage crisis is not new and over 9,500
-                        tonnes of kabadi are generated each day in the city...</p>
-                    <a href="#" class="read-more">Read More »</a>
+                    <h3>WASTE WHIRL AS AN INITIATIVE</h3>
+                    <p>Empowering Communities: Connecting Ragpickers with Waste Disposal Needs
+                        In a world increasingly focused on sustainability, an innovative website is bridging the gap between ragpickers and individuals looking...</p>
+                    <a href="{{ url_for("blog4") }}" class="read-more">Read More »</a>
                 </div>
             </div>
         </div>
@@ -231,7 +231,7 @@
             </div>
             <div>
                 <h2>BUSINESS HOURS</h2>
-                <p class="icon">🕒 Mon – Fri ..... 10 am – 8 pm, Sat, Sun ...... Closed</p>
+                <p class="icon">🕒 Mon – Fri : 10 am – 8 pm, Sat,Sun : Closed</p>
             </div>
         </div>
 
@@ -254,8 +254,8 @@
 
     <div class="fab-container">
         <div class="fab-icons">
-            <a href="https://wa.me/yourwhatsappnumber" target="_blank"><i class="fa fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/yourinstagramprofile" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://wa.me/9814536074" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/itsash_0805" target="_blank"><i class="fa fa-instagram"></i></a>
             <a href="https://www.linkedin.com/in/yourlinkedinprofile" target="_blank"><i class="fa fa-linkedin"></i></a>
         </div>
         <div class="fab-button" onclick="toggleFabMenu()">+</div>

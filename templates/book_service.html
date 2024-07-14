@@ -63,7 +63,6 @@
     <h1>Select a Waste Whirl Partner</h1>
     <div class="container">
         {% for ragpicker in ragpickers %}
-
         <div class="ragpicker-bubble"
             onclick="window.location.href='{{ url_for('request_service', ragpicker_id=ragpicker.id) }}'">
             <p>Name: {{ ragpicker.name }}</p>
@@ -71,9 +70,8 @@
             <p>City: {{ ragpicker.city }}</p>
             <p>Rating: {{ ragpicker_ratings[ragpicker.id] | default('No ratings yet') }}</p>
         </div>
-
         {% endfor %}
-           </div>
+    </div>
 </body>
 
 </html>

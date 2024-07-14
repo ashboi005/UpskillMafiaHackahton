@@ -9,8 +9,8 @@
     align-items: center;
     height: 100vh;
     justify-content: center;
-    
-    
+
+
 }
 .box{
     text-align: center;
@@ -35,7 +35,7 @@ body button{
     padding: 20px;
     border-radius: 20px;
     background-color: green;
-   
+
 }
 body button:hover{
     animation: button 0.5s ease-out forwards;
@@ -46,11 +46,11 @@ body a{
     font-weight: 600;
     text-decoration: none;
     color: white;
-   
+
 }
 @keyframes button {
     to{
         transform: scale(1.1);
     }
-    
+
 }

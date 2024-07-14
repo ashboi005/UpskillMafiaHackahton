@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/blog.css">
+</head>
+
+<body>
+
+    <body>
+        <nav>
+            <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+            <ul class="nav-links">
+                <li><a href="{{ url_for("home") }}">Blogs</a></li>
+                <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
+            </ul>
+            <a href="{{ url_for("choose_register") }}" id="login-btn">Sign-up/Login</a>
+        </nav>
+        <div class="papa">
+            <section class="mainblog">
+                <h1>NEED  OF WASTE DISPOSAL</h1>
+                <img src="/static/images/b1.jpg" alt="Plastic" style="width: 500px;">
+                <p>In every household, rags are indispensable for cleaning up spills, wiping down surfaces, and performing various other tasks.
+                    However, improper disposal of used rags can pose significant health and environmental risks.
+                    Used rags often contain hazardous substances like oils, chemicals, and bacteria, which can contaminate water supplies and soil if not disposed of correctly.
+                    Additionally, improperly stored or disposed of rags soaked in flammable substances can become a fire hazard.
+                    To mitigate these risks, it's crucial to adopt safe disposal practices.
+                    Designate a separate container for used rags, especially those contaminated with chemicals or oils.
+                    Many communities offer special disposal services or recycling options for such materials.
+                    By ensuring that rags are disposed of properly, we can protect our health, maintain a clean environment, and prevent potential hazards.
+                    Remember, responsible disposal starts at home, contributing to a safer and cleaner world for everyone.</p>
+            </section>
+
+            <section class="sidebar">
+                <div class="cont">
+                    <h1>Read more articles</h1>
+                    <a href="{{ url_for("blog2") }}">Blog 2</a>
+                    <a href="{{ url_for("blog3") }}">Blog 3</a>
+                    <a href="{{ url_for("blog4") }}">Blog 4</a>
+                    <a href="{{ url_for("blog5") }}">Blog 5</a>
+
+                </div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+            </section>
+
+
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Posts</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+</head>
+
+<body>
+    <nav>
+        <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+        <ul class="nav-links">
+            <li><a href="{{ url_for("index") }}">Home</a></li>
+            <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
+        </ul>
+        <a href="{{ url_for("choose_register")}}" id="login-btn">Sign-up/Login</a>
+    </nav>
+    <div class="latest-posts-section">
+        <h2>All Posts</h2>
+        <div class="posts-container">
+            <div class="post-card">
+                <img src="static/images/b1.jpg" alt="Waste Plastic Kabadi Rate">
+                <h3>NEED  OF WASTE DISPOSAL</h3>
+                <p>In every household, rags are indispensable for cleaning up spills, wiping down surfaces, and performing various other tasks.
+                    However...</p>
+                <a href="{{ url_for("blog1") }}">Read More »</a>
+            </div>
+            <div class="post-card">
+                <img src="static/images/b2.jpg" alt="TheKabadawala Helps You Instantly">
+                <h3>METHODS OF WASTE DISPOSAL</h3>
+                <p>In today's world, effective waste disposal is critical for maintaining a clean and sustainable environment.
+                    As our population...</p>
+                <a href="{{ url_for("blog2") }}">Read More »</a>
+            </div>
+            <div class="post-card">
+                <img src="static/images/logo4.png" alt="TheKabadawala Helps You Instantly">
+                <h3>WASTE WHIRL AS AN INITIATIVE</h3>
+                <p>Empowering Communities: Connecting Ragpickers with Waste Disposal Needs
+                    In a world increasingly focused on sustainability, an innovative website...</p>
+                <a href="{{ url_for("blog3") }}">Read More »</a>
+            </div>
+            <div class="post-card">
+                <img src="static/images/b3.avif" alt="TheKabadawala Helps You Instantly">
+                <h3>ROLE OF RAG PICKERS IN OUR COMMUNITY</h3>
+                <p>Ragpickers play a crucial, yet often overlooked, role in society by contributing significantly to waste management and environmental sustainability.
+                    These individuals...</p>
+                <a href="{{ url_for("blog4") }}">Read More »</a>
+            </div>
+            <div class="post-card">
+                <img src="static/images/b4.avif" alt="TheKabadawala Helps You Instantly">
+                <h3>IMPACT ON THE LIVES OF RAG PICKERS</h3>
+                <p>Transforming Lives: The Impact of Connecting Ragpickers with Waste Disposal Needs
+                    The initiative to connect ragpickers with...</p>
+                <a href="{{ url_for("blog5") }}">Read More »</a>
+            </div>
+            <!-- Repeat similar blocks for additional posts -->
+        </div>
+    </div>
+</body>
+
+</html>

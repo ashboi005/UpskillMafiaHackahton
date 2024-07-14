@@ -106,6 +106,34 @@ class BankDetails(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/about_us')
+def about_us():
+    return render_template('about_us.html')
+
+@app.route('/blog1')
+def blog1():
+    return render_template('blog1.html')
+
+@app.route('/blog2')
+def blog2():
+    return render_template('blog2.html')
+
+@app.route('/blog3')
+def blog3():
+    return render_template('blog4.html')
+
+@app.route('/blog4')
+def blog4():
+    return render_template('blog3.html')
+
+@app.route('/blog5')
+def blog5():
+    return render_template('blog5.html')
+
 @app.route('/submit_contact_form', methods=['POST'])
 def submit_contact_form():
     name = request.form.get('name')
@@ -257,10 +285,11 @@ def service_requests_view():
     service_requests_with_user_details = []
     for request in service_requests:
         user_details = UserDetails.query.filter_by(user_id=request.user_id).first()
+        ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=request.ragpicker_id).first()
         service_requests_with_user_details.append((request, user_details))
 
     return render_template('service_requests.html',
-                           service_requests_with_user_details=service_requests_with_user_details)
+                           service_requests_with_user_details=service_requests_with_user_details, ragpicker_details=ragpicker_details)
 
 @app.route('/user_fill_details', methods=['GET', 'POST'])
 def user_fill_details():

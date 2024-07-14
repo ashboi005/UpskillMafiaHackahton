@@ -5,16 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="stylesheet" href="static/css/user_dashboards.css">
 </head>
 <body>
-    <h1>Welcome, {{ user_details.name }}</h1>
-    <p>User Options:</p>
-    <ul>
+    <nav>
+        <img src="static/images/logo4.png" alt="Waste Whirl" class="logo">
+        <ul class="nav-links">
+
+            <li class="close-btn"><i class="fa fa-times" onclick="toggleMenu()"></i></li>
+            <li><a href="{{ url_for("index") }}">Home</a></li>
+            <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
+            <li><a href="{{ url_for("about_us") }}">About Us</a></li>
+
+        </ul>
+        <p class="username">{{ user_details.name }}</p>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+    </nav>
+
+  <div class="container">
+    <div class="left">
+        <h1>USER OPTIONS</h1>
+    <ul class="user_functions">
         <li><a href="{{ url_for('user_fill_details') }}">Edit Details</a></li>
         <li><a href="{{ url_for('book_service') }}">Book Service/Appointment</a></li>
         <li><a href="{{ url_for('user_service_requests') }}">View Service Requests</a></li>
         <li><a href="{{ url_for('user_tipping') }}">Tip Your Waste Whirl Partner</a></li>
         <li><a href="{{ url_for('user_bank_details') }}">Bank Details</a></li>
     </ul>
+</div>
+<div class="right">
+    <img src="static/images/trash.jpg" alt="">
+</div>
+</div>
+<div class="service">
+    <h1>Our Achievements</h1>
+    <div class="Achievement">
+        <div>15K+</div>
+        <div>Waste Whirl Workers</div>
+    </div>
+    <div class="Achievement">
+        <div>240K+</div>
+        <div>Happy Customers</div>
+    </div>
+    <div class="Achievement">
+        <div>20+</div>
+        <div>Years Experience</div>
+    </div>
+
+</div>
 </body>
 </html>

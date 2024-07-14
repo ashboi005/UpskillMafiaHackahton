@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/blog.css">
+</head>
+
+<body>
+
+    <body>
+        <nav>
+            <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+            <ul class="nav-links">
+                <li><a href="{{ url_for("home") }}">Blogs</a></li>
+                <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
+            </ul>
+            <a href="{{ url_for("choose_register") }}" id="login-btn">Sign-up/Login</a>
+        </nav>
+        <div class="papa">
+            <section class="mainblog">
+                <h1>METHODS OF WASTE DISPOSAL</h1>
+                <img src="/static/images/b2.jpg" alt="Plastic" style="width: 500px;">
+                <p>In today's world, effective waste disposal is critical for maintaining a clean and sustainable environment.
+                    As our population grows, so does the amount of waste we produce, making it essential to implement efficient disposal methods.
+                    Proper waste management helps prevent pollution, conserves resources, and protects public health.
+                    There are several ways to manage waste effectively, including recycling, composting, and utilizing waste-to-energy technologies.
+                    Recycling reduces the amount of waste sent to landfills and promotes the reuse of materials.
+                    Composting organic waste like food scraps and yard clippings turns them into valuable fertilizer for gardens and farms.
+                    Waste-to-energy facilities convert non-recyclable waste into electricity, reducing reliance on fossil fuels.
+                    By adopting these methods, individuals and communities can significantly reduce their environmental footprint, fostering a healthier planet for future generations.</p>
+            </section>
+
+            <section class="sidebar">
+                <div class="cont">
+                    <h1>Read more articles</h1>
+                    <a href="{{ url_for("blog1") }}">Blog 1</a>
+                    <a href="{{ url_for("blog3") }}">Blog 3</a>
+                    <a href="{{ url_for("blog4") }}">Blog 4</a>
+                    <a href="{{ url_for("blog5") }}">Blog 5</a>
+
+                </div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+            </section>
+
+
+        </div>
+    </body>
+
+</html>

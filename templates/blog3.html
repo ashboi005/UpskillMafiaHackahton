@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/blog.css">
+</head>
+
+<body>
+
+    <body>
+        <nav>
+            <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+            <ul class="nav-links">
+                <li><a href="{{ url_for("home") }}">Blogs</a></li>
+                <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
+            </ul>
+            <a href="{{ url_for("choose_register") }}" id="login-btn">Sign-up/Login</a>
+        </nav>
+        <div class="papa">
+            <section class="mainblog">
+                <h1>WASTE WHIRL AS AN INITIATIVE</h1>
+                <img src="/static/images/logo4.png" alt="Plastic" style="width: 500px;">
+                <p>Empowering Communities: Connecting Ragpickers with Waste Disposal Needs
+                    In a world increasingly focused on sustainability, an innovative website is bridging the gap between ragpickers and individuals looking to dispose of waste responsibly.
+                    This platform empowers ragpickers by offering them direct access to waste disposal requests from households and businesses.
+                    Users can schedule pickups for various types of waste, ensuring that recyclable materials are efficiently repurposed while reducing landfill contributions.
+                    This initiative not only supports the livelihoods of ragpickers but also promotes environmental stewardship.
+                    By streamlining the waste disposal process, the website enhances community cleanliness and fosters a circular economy.
+                    Users benefit from convenient waste management, while ragpickers gain fairer wages and safer working conditions.
+                    Together, they are creating a cleaner, greener future.
+                    This website is a testament to how technology can be harnessed for social good, transforming waste into a valuable resource.</p>
+            </section>
+
+            <section class="sidebar">
+                <div class="cont">
+                    <h1>Read more articles</h1>
+                    <a href="{{ url_for("blog1") }}">Blog 1</a>
+                    <a href="{{ url_for("blog2") }}">Blog 2</a>
+                    <a href="{{ url_for("blog3") }}">Blog 4</a>
+                    <a href="{{ url_for("blog5") }}">Blog 5</a>
+
+                </div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+            </section>
+
+
+        </div>
+    </body>
+
+</html>

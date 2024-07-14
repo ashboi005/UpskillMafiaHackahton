@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/blog.css">
+</head>
+
+<body>
+
+    <body>
+        <nav>
+            <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+            <ul class="nav-links">
+                <li><a href="{{ url_for("home") }}">Blogs</a></li>
+                <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
+            </ul>
+            <a href="{{ url_for("choose_register") }}" id="login-btn">Sign-up/Login</a>
+        </nav>
+        <div class="papa">
+            <section class="mainblog">
+                <h1>ROLE OF RAG PICKERS IN OUR COMMUNITY</h1>
+                <img src="/static/images/b3.avif" alt="Plastic" style="width: 500px;">
+                <p>Ragpickers play a crucial, yet often overlooked, role in society by contributing significantly to waste management and environmental sustainability.
+                    These individuals, who collect and sort through discarded materials, help in reducing the volume of waste that ends up in landfills.
+                    By salvaging recyclable materials such as paper, plastic, and metal, ragpickers facilitate the recycling process, thus conserving natural resources and reducing pollution.
+                    Moreover, ragpickers support the economy by providing raw materials to recycling industries at a lower cost.
+                    Their work also indirectly supports municipal waste management systems by easing the burden on official waste collection services.
+                    Despite their significant contributions, ragpickers often work in hazardous conditions and face social stigma.
+                    Recognizing their efforts and providing them with better working conditions, safety gear, and access to social benefits can enhance their quality of life and further improve waste management systems.</p>
+            </section>
+
+            <section class="sidebar">
+                <div class="cont">
+                    <h1>Read more articles</h1>
+                    <a href="{{ url_for("blog1") }}">Blog 1</a>
+                    <a href="{{ url_for("blog2") }}">Blog 2</a>
+                    <a href="{{ url_for("blog4") }}">Blog 3</a>
+                    <a href="{{ url_for("blog5") }}">Blog 5</a>
+
+                </div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+            </section>
+
+
+        </div>
+    </body>
+
+</html>

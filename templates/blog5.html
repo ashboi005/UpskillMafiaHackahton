@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/blog.css">
+</head>
+
+<body>
+
+    <body>
+        <nav>
+            <img src="/static/images/logo4.png" alt="Waste Whirl" class="logo">
+            <ul class="nav-links">
+                <li><a href="{{ url_for("home") }}">Blogs</a></li>
+                <li><a href="{{ url_for("scraprates") }}">Scrap Rates</a></li>
+            </ul>
+            <a href="{{ url_for("choose_register") }}" id="login-btn">Sign-up/Login</a>
+        </nav>
+        <div class="papa">
+            <section class="mainblog">
+                <h1>IMPACT ON THE LIVES OF RAG PICKERS</h1>
+                <img src="/static/images/b4.avif" alt="Plastic" style="width: 500px;">
+                <p>Transforming Lives: The Impact of Connecting Ragpickers with Waste Disposal Needs
+                    The initiative to connect ragpickers with those needing waste disposal services is making a profound impact on the lives of ragpickers.
+                    Traditionally marginalized and often working in hazardous conditions, ragpickers now have access to safer and more organized waste collection opportunities.
+                    This platform ensures they receive fair compensation for their efforts, significantly improving their economic stability and quality of life.
+                    Moreover, by formalizing their work, the initiative reduces the health risks associated with scavenging through unsorted waste.
+                    Ragpickers receive protective gear and training, promoting safer work practices.
+                    The platform also facilitates social recognition, granting ragpickers the dignity and respect they deserve for their critical role in waste management and recycling.
+                    In essence, this initiative is not only enhancing the livelihoods of ragpickers but also fostering a more inclusive and equitable society.
+                    By valuing their contributions and ensuring their welfare, it underscores the importance of every individual's role in creating a sustainable future.</p>
+            </section>
+
+            <section class="sidebar">
+                <div class="cont">
+                    <h1>Read more articles</h1>
+                    <a href="{{ url_for("blog1") }}">Blog 1</a>
+                    <a href="{{ url_for("blog2") }}">Blog 2</a>
+                    <a href="{{ url_for("blog3") }}">Blog 3</a>
+                    <a href="{{ url_for("blog4") }}">Blog 4</a>
+
+                </div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+                <div class="cont"></div>
+            </section>
+
+
+        </div>
+    </body>
+
+</html>
