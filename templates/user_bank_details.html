@@ -5,29 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Details</title>
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="stylesheet" href="static/css/filldetails.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
 </head>
 <body>
+    <div class="container">
     <h1>Bank Details</h1>
     <form action="{{ url_for('user_bank_details') }}" method="post">
+        <div class="items">
         <label for="account_holder_name">Account Holder Name:</label>
         <input type="text" id="account_holder_name" name="account_holder_name" value="{{ bank_details.account_holder_name if bank_details else '' }}" required>
+    </div>
         <br>
+        <div class="items">
         <label for="account_number">Account Number:</label>
         <input type="text" id="account_number" name="account_number" value="{{ bank_details.account_number if bank_details else '' }}" required>
+    </div>
         <br>
+        <div class="items">
         <label for="ifsc_code">IFSC Code:</label>
         <input type="text" id="ifsc_code" name="ifsc_code" value="{{ bank_details.ifsc_code if bank_details else '' }}" required>
+    </div>
         <br>
+        <div class="items">
         <label for="swift_code">SWIFT Code:</label>
         <input type="text" id="swift_code" name="swift_code" value="{{ bank_details.swift_code if bank_details else '' }}">
+    </div>
         <br>
+        <div class="items">
         <label for="bank_name">Bank Name:</label>
         <input type="text" id="bank_name" name="bank_name" value="{{ bank_details.bank_name if bank_details else '' }}" required>
+    </div>
         <br>
+        <div class="items">
         <label for="branch">Branch:</label>
         <input type="text" id="branch" name="branch" value="{{ bank_details.branch if bank_details else '' }}" required>
+    </div>
         <br>
-        <button type="submit">Save</button>
+        <div class="btn">
+        <button type="submit" id="btn">Save</button>
+    </div>
     </form>
+    </div>
 </body>
 </html>

@@ -200,20 +200,20 @@ input[type="checkbox"]:checked + label::before {
             </div>
             <form action="{{ url_for('submit_review', request_id=service_request.id) }}" method="post" style="max-width: 100%;">
                 <div class="stars" style="display: flex; gap: 20px; padding: 0px 20px;">
-                    <input type="checkbox" id="star5" name="rating" value="5" style="display: none;">
-                    <label for="star5" class="star" data-tooltip="Perfection" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+                    <input type="radio" id="star1" name="rating" value="1" style="display: none;">
+                    <label for="star1" class="star" data-tooltip="Poor Performance"></label>
 
-                    <input type="checkbox" id="star4" name="rating" value="4" style="display: none;">
-                    <label for="star4" class="star" data-tooltip="Good Performance" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+                    <input type="radio" id="star2" name="rating" value="2" style="display: none;">
+                    <label for="star2" class="star" data-tooltip="Below Average Performance"></label>
 
-                    <input type="checkbox" id="star3" name="rating" value="3" style="display: none;">
-                    <label for="star3" class="star" data-tooltip="Average Performance" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+                    <input type="radio" id="star3" name="rating" value="3" style="display: none;">
+                    <label for="star3" class="star" data-tooltip="Average Performance"></label>
 
-                    <input type="checkbox" id="star2" name="rating" value="2" style="display: none;">
-                    <label for="star2" class="star" data-tooltip="Below Average Performance" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+                    <input type="radio" id="star4" name="rating" value="4" style="display: none;">
+                    <label for="star4" class="star" data-tooltip="Good Performance"></label>
 
-                    <input type="checkbox" id="star1" name="rating" value="1" style="display: none;">
-                    <label for="star1" class="star" data-tooltip="Poor Performance" style="font-size: 36px; cursor: pointer;">&#x2606;</label>
+                    <input type="radio" id="star5" name="rating" value="5" style="display: none;">
+                    <label for="star5" class="star" data-tooltip="Perfection"></label>
                 </div>
                 <br>
                 <textarea id="description" name="description" placeholder="Share Feedback" required></textarea>

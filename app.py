@@ -444,7 +444,7 @@ def submit_review(request_id):
         return 'Unauthorized', 403
 
     if request.method == 'POST':
-        rating = int(request.form['rating'])  # Get rating as an integer
+        rating = int(request.form['rating'])
         description = request.form['description']
 
         review = Review(

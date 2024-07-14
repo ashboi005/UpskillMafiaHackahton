@@ -1,31 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
     <title>Book Service</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #C6EBC5;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
         .ragpicker-bubble {
-            display: inline-block;
-            padding: 10px;
-            margin: 10px;
-            border: 1px solid #ccc;
+            background-color: #fff;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            width: 80%;
+            max-width: 400px;
             cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .ragpicker-bubble:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .ragpicker-bubble p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .ragpicker-bubble p:first-child {
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
     </style>
 </head>
+
 <body>
     <h1>Select a Waste Whirl Partner</h1>
-    {% for ragpicker in ragpickers %}
-    <div class="ragpicker-bubble" onclick="window.location.href='{{ url_for('request_service', ragpicker_id=ragpicker.id) }}'">
-        <p>Name: {{ ragpicker.name }}</p>
-        <p>Locality: {{ ragpicker.locality }}</p>
-        <p>City: {{ ragpicker.city }}</p>
-        <p>Rating: {{ ragpicker_ratings[ragpicker.id] | default('No ratings yet') }}</p>
-    </div>
-    {% endfor %}
+    <div class="container">
+        {% for ragpicker in ragpickers %}
+
+        <div class="ragpicker-bubble"
+            onclick="window.location.href='{{ url_for('request_service', ragpicker_id=ragpicker.id) }}'">
+            <p>Name: {{ ragpicker.name }}</p>
+            <p>Locality: {{ ragpicker.locality }}</p>
+            <p>City: {{ ragpicker.city }}</p>
+            <p>Rating: {{ ragpicker_ratings[ragpicker.id] | default('No ratings yet') }}</p>
+        </div>
+
+        {% endfor %}
+           </div>
 </body>
+
 </html>
