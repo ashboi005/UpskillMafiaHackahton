@@ -492,8 +492,6 @@ def submit_review(request_id):
 
     return render_template('submit_review.html', service_request=service_request)
 
-
-
 @app.route('/ragpicker_reviews')
 def ragpicker_reviews():
     if 'ragpicker_id' not in session:
@@ -503,14 +501,10 @@ def ragpicker_reviews():
     ragpicker_details = RagpickerDetails.query.filter_by(ragpicker_id=session['ragpicker_id']).first()
     average_rating = db.session.query(db.func.avg(Review.rating)).filter_by(ragpicker_id=session['ragpicker_id']).scalar()
 
-    # Round the average rating to one decimal place
     if average_rating is not None:
         average_rating = round(average_rating, 1)
 
     return render_template('ragpicker_reviews.html', reviews=reviews, average_rating=average_rating, ragpicker_details=ragpicker_details)
 
-
-
 if __name__ == '__main__':
     app.run()
- #testing
